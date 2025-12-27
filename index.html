@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f4f8;
   margin: 0;
+  font-family: Arial;
+  background: #f2f4f8;
 }
 
 header {
   background: #0d6efd;
   color: white;
-  padding: 15px;
   text-align: center;
+  padding: 15px;
 }
 
 .top-buttons a {
   display: inline-block;
-  margin: 5px;
+  margin: 6px;
   padding: 10px 16px;
   border-radius: 6px;
   color: white;
@@ -33,35 +32,27 @@ header {
 .call-btn { background: #198754; }
 .whatsapp-btn { background: #25D366; }
 
-.language {
-  margin-top: 10px;
-}
-
-select {
-  padding: 6px;
-  border-radius: 6px;
-}
-
 h2 {
-  padding: 15px;
+  padding: 10px;
 }
 
+/* SERVICES */
 .service {
   margin: 10px;
-  border-radius: 10px;
   background: white;
+  border-radius: 10px;
+  overflow: hidden;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
 .service-btn {
   width: 100%;
+  padding: 14px;
   background: #0d6efd;
   color: white;
-  padding: 15px;
   border: none;
-  font-size: 18px;
+  font-size: 17px;
   text-align: left;
-  cursor: pointer;
 }
 
 .items {
@@ -82,12 +73,12 @@ h2 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 9999;
+  background: rgba(0,0,0,.6);
+  z-index: 999;
 }
 
 #formInner {
-  background: #fff;
+  background: white;
   max-width: 420px;
   margin: 60px auto;
   padding: 20px;
@@ -105,8 +96,8 @@ h2 {
   width: 100%;
   padding: 12px;
   background: #25D366;
-  color: white;
   border: none;
+  color: white;
   font-size: 16px;
 }
 
@@ -114,8 +105,8 @@ h2 {
   width: 100%;
   padding: 10px;
   background: #dc3545;
-  color: white;
   border: none;
+  color: white;
   margin-top: 6px;
 }
 </style>
@@ -124,26 +115,19 @@ h2 {
 <body>
 
 <header>
-  <h1 id="titleText">Smart Repair Alliances Hub</h1>
-  <p id="subText">Kadapa – Doorstep Service</p>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa – Doorstep Service</p>
 
   <div class="top-buttons">
     <a class="call-btn" href="tel:6303715808">📞 Call</a>
     <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
   </div>
-
-  <div class="language">
-    <select onchange="changeLang(this.value)">
-      <option value="en">English</option>
-      <option value="te">తెలుగు</option>
-      <option value="hi">हिंदी</option>
-    </select>
-  </div>
 </header>
 
-<h2 id="serviceTitle">Our Services</h2>
+<h2>Our Services</h2>
 
-<!-- SERVICES -->
+<!-- ✅ ALL SERVICES BELOW -->
+
 <div class="service">
 <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
 <div class="items" id="ac">
@@ -192,6 +176,28 @@ h2 {
 </div>
 </div>
 
+<div class="service">
+<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+  <div onclick="openForm('Geyser Repair')">Repair</div>
+  <div onclick="openForm('Geyser Installation')">Installation</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+<div class="items" id="cooler">
+  <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+  <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+</div>
+</div>
+
 <!-- FORM -->
 <div id="formBox">
   <div id="formInner">
@@ -212,11 +218,9 @@ let selectedService = "";
 
 function toggleService(id) {
   document.querySelectorAll(".items").forEach(el => {
-    if (el.id === id) {
-      el.style.display = el.style.display === "block" ? "none" : "block";
-    } else {
-      el.style.display = "none";
-    }
+    el.style.display = el.id === id && el.style.display !== "block"
+      ? "block"
+      : "none";
   });
 }
 
@@ -224,7 +228,6 @@ function openForm(service) {
   selectedService = service;
   document.getElementById("serviceName").innerText = service;
 
-  // clear old data
   document.getElementById("custName").value = "";
   document.getElementById("custMobile").value = "";
   document.getElementById("custIssue").value = "";
@@ -238,43 +241,27 @@ function closeForm() {
 }
 
 function sendWhatsApp() {
-  let name = document.getElementById("custName").value.trim();
-  let mobile = document.getElementById("custMobile").value.trim();
-  let issue = document.getElementById("custIssue").value.trim();
-  let address = document.getElementById("custAddress").value.trim();
+  const name = custName.value.trim();
+  const mobile = custMobile.value.trim();
+  const issue = custIssue.value.trim();
+  const address = custAddress.value.trim();
 
   if (!name || !mobile || !issue || !address) {
     alert("Please fill all details");
     return;
   }
 
-  let msg =
+  const msg =
 `Service: ${selectedService}
 Name: ${name}
 Mobile: ${mobile}
 Issue: ${issue}
 Address: ${address}`;
 
-  window.open("https://wa.me/916303715808?text=" + encodeURIComponent(msg));
-}
-
-/* LANGUAGE */
-function changeLang(lang) {
-  if (lang === "te") {
-    document.getElementById("titleText").innerText = "స్మార్ట్ రిపేర్ అలయన్స్ హబ్";
-    document.getElementById("subText").innerText = "డోర్ స్టెప్ సర్వీస్";
-    document.getElementById("serviceTitle").innerText = "మా సేవలు";
-  } 
-  else if (lang === "hi") {
-    document.getElementById("titleText").innerText = "स्मार्ट रिपेयर अलायंस हब";
-    document.getElementById("subText").innerText = "डोर स्टेप सर्विस";
-    document.getElementById("serviceTitle").innerText = "हमारी सेवाएं";
-  } 
-  else {
-    document.getElementById("titleText").innerText = "Smart Repair Alliances Hub";
-    document.getElementById("subText").innerText = "Kadapa – Doorstep Service";
-    document.getElementById("serviceTitle").innerText = "Our Services";
-  }
+  window.open(
+    "https://wa.me/916303715808?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 </script>
 

@@ -28,15 +28,12 @@ header p {
 .top-buttons a {
   display: inline-block;
   margin: 6px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-radius: 6px;
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
-}
-.top-buttons a:hover {
-  opacity: 0.8;
+  font-size: 14px;
 }
 .call-btn { background: #198754; }
 .whatsapp-btn { background: #25D366; }
@@ -47,9 +44,24 @@ h2 {
   text-align: center;
 }
 
+/* ===== SERVICES LAYOUT ===== */
+.services-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .services-wrapper {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 /* SERVICES */
 .service {
-  margin: 10px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -62,10 +74,9 @@ h2 {
   background: #0d6efd;
   color: white;
   border: none;
-  font-size: 17px;
+  font-size: 16px;
   text-align: left;
   cursor: pointer;
-  transition: 0.3s;
 }
 .service-btn:hover {
   background: #0b5ed7;
@@ -82,7 +93,6 @@ h2 {
   margin: 6px 0;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s;
 }
 .items div:hover {
   background: #d6e0f0;
@@ -120,12 +130,11 @@ h2 {
   background: #25D366;
   border: none;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 6px;
   cursor: pointer;
   margin-top:6px;
 }
-.btn-green:hover { opacity: 0.9; }
 
 .btn-red {
   width: 100%;
@@ -133,14 +142,13 @@ h2 {
   background: #dc3545;
   border: none;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 6px;
   cursor: pointer;
   margin-top: 6px;
 }
-.btn-red:hover { opacity: 0.9; }
 
-/* STICKY CONTACT PROMPT */
+/* ===== STICKY CONTACT PROMPT ===== */
 #contactPrompt {
   background:#eef1f5;
   padding:12px 0;
@@ -151,32 +159,39 @@ h2 {
   width: 100%;
   margin-top:20px;
 }
+
 #contactPrompt h3 {
-  margin: 5px 0;
+  margin-bottom: 6px;
 }
+
 #contactPrompt p {
   font-size:13px;
-  margin:5px 0;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
+
 #contactPrompt a {
-  margin:5px;
-  padding:10px 16px;
+  margin: 4px;
+  padding: 6px 12px;
   border-radius:6px;
   color:white;
   font-weight:bold;
+  font-size:13px;
   text-decoration:none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 #contactPrompt .call-btn { background:#198754; }
 #contactPrompt .whatsapp-btn { background:#25D366; }
-
 </style>
 </head>
+
 <body>
 
 <header>
   <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Doorstep Service | Timings:8:00 AM to 9:00 PM | Kadapa All Nearby Locations | OWNER: Angeri Rambhupal Reddy, Contact: +91 6303715808</p>
-
+  <p>Kadapa – Doorstep Service | Timings:8:00 AM to 9:00 PM | OWNER: Angeri Rambhupal Reddy | 📞 6303715808</p>
   <div class="top-buttons">
     <a class="call-btn" href="tel:6303715808">📞 Call</a>
     <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
@@ -185,103 +200,104 @@ h2 {
 
 <h2>Our Services</h2>
 
-<!-- SERVICES -->
-<div class="service">
-  <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
-  <div class="items" id="ac">
-    <div onclick="openForm('AC Repair')">AC Repair</div>
-    <div onclick="openForm('AC Installation')">AC Installation</div>
-    <div onclick="openForm('AC General Service')">AC General Service</div>
-  </div>
-</div>
+<div class="services-wrapper">
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
-  <div class="items" id="fridge">
-    <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
-    <div onclick="openForm('Gas Filling')">Gas Filling</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+    <div class="items" id="ac">
+      <div onclick="openForm('AC Repair')">AC Repair</div>
+      <div onclick="openForm('AC Installation')">AC Installation</div>
+      <div onclick="openForm('AC General Service')">AC General Service</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
-  <div class="items" id="wash">
-    <div onclick="openForm('Top Load Repair')">Top Load Repair</div>
-    <div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+    <div class="items" id="fridge">
+      <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+      <div onclick="openForm('Gas Filling')">Gas Filling</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
-  <div class="items" id="chimney">
-    <div onclick="openForm('Chimney Cleaning')">Cleaning</div>
-    <div onclick="openForm('Chimney Repair')">Repair</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+    <div class="items" id="wash">
+      <div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+      <div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
-  <div class="items" id="tv">
-    <div onclick="openForm('TV Repair')">LED / LCD Repair</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+    <div class="items" id="chimney">
+      <div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+      <div onclick="openForm('Chimney Repair')">Repair</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
-  <div class="items" id="ro">
-    <div onclick="openForm('RO Service')">RO Service</div>
-    <div onclick="openForm('Filter Change')">Filter Change</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+    <div class="items" id="tv">
+      <div onclick="openForm('TV Repair')">LED / LCD Repair</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
-  <div class="items" id="geyser">
-    <div onclick="openForm('Geyser Repair')">Repair</div>
-    <div onclick="openForm('Geyser Installation')">Installation</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+    <div class="items" id="ro">
+      <div onclick="openForm('RO Service')">RO Service</div>
+      <div onclick="openForm('Filter Change')">Filter Change</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
-  <div class="items" id="cooler">
-    <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+    <div class="items" id="geyser">
+      <div onclick="openForm('Geyser Repair')">Repair</div>
+      <div onclick="openForm('Geyser Installation')">Installation</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('Microwave')">🌀 Microwave oven</button>
-  <div class="items" id="Microwave">
-    <div onclick="openForm('Microwave repair')">Microwave oven</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+    <div class="items" id="cooler">
+      <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+    </div>
   </div>
-</div>
 
-<div class="service">
-  <button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
-  <div class="items" id="bed">
-    <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
+    <div class="items" id="microwave">
+      <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+    </div>
   </div>
+
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+    <div class="items" id="bed">
+      <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+    </div>
+  </div>
+
 </div>
 
 <!-- FORM -->
 <div id="formBox">
   <div id="formInner">
     <h3 id="serviceName"></h3>
-
     <input id="custName" placeholder="Customer Name">
-    <input id="custMobile" placeholder="Mobile Number" type="tel">
+    <input id="custMobile" placeholder="Mobile Number">
     <textarea id="custIssue" placeholder="Problem / Issue"></textarea>
     <textarea id="custAddress" placeholder="Address"></textarea>
-
     <button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
     <button class="btn-red" onclick="closeForm()">Close</button>
   </div>
 </div>
 
-<!-- STICKY CONTACT PROMPT -->
+<!-- CONTACT PROMPT -->
 <div id="contactPrompt">
   <h3>Why Contact Us?</h3>
-  <p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable & Transparent Pricing</p>
+  <p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
   <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
   <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
 </div>
@@ -291,55 +307,31 @@ let selectedService = "";
 
 function toggleService(id) {
   document.querySelectorAll(".items").forEach(el => {
-    el.style.display = el.id === id && el.style.display !== "block"
-      ? "block"
-      : "none";
+    el.style.display = el.id === id && el.style.display !== "block" ? "block" : "none";
   });
 }
 
 function openForm(service) {
   selectedService = service;
-  document.getElementById("serviceName").innerText = service;
-
-  document.getElementById("custName").value = "";
-  document.getElementById("custMobile").value = "";
-  document.getElementById("custIssue").value = "";
-  document.getElementById("custAddress").value = "";
-
-  document.getElementById("formBox").style.display = "block";
+  serviceName.innerText = service;
+  formBox.style.display = "block";
 }
 
-// Close form when clicking outside
-document.getElementById('formBox').addEventListener('click', function(e) {
-  if(e.target === this) closeForm();
+formBox.addEventListener("click", e => {
+  if (e.target === formBox) closeForm();
 });
 
 function closeForm() {
-  document.getElementById("formBox").style.display = "none";
+  formBox.style.display = "none";
 }
 
 function sendWhatsApp() {
-  const name = custName.value.trim();
-  const mobile = custMobile.value.trim();
-  const issue = custIssue.value.trim();
-  const address = custAddress.value.trim();
-
-  if (!name || !mobile || !issue || !address) {
-    alert("Please fill all details");
-    return;
-  }
-
-  const msg =
-`Service: ${selectedService}
-Name: ${name}
-Mobile: ${mobile}
-Issue: ${issue}
-Address: ${address}`;
-
-  window.open(
-    "https://wa.me/916303715808?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
+  const msg = `Service: ${selectedService}
+Name: ${custName.value}
+Mobile: ${custMobile.value}
+Issue: ${custIssue.value}
+Address: ${custAddress.value}`;
+  window.open("https://wa.me/916303715808?text=" + encodeURIComponent(msg), "_blank");
 }
 </script>
 

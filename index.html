@@ -64,19 +64,85 @@ footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; backgrou
 
 <h2>Our Services</h2>
 <div class="services-wrapper">
-  <div class="service"><button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button><div class="items" id="ac"><div onclick="openForm('AC Repair')">AC Repair</div><div onclick="openForm('AC Installation')">AC Installation</div><div onclick="openForm('AC General Service')">AC General Service</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button><div class="items" id="fridge"><div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div><div onclick="openForm('Gas Filling')">Gas Filling</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button><div class="items" id="wash"><div onclick="openForm('Top Load Repair')">Top Load Repair</div><div onclick="openForm('Front Load Repair')">Front Load Repair</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button><div class="items" id="chimney"><div onclick="openForm('Chimney Cleaning')">Cleaning</div><div onclick="openForm('Chimney Repair')">Repair</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button><div class="items" id="tv"><div onclick="openForm('TV Repair')">LED / LCD Repair</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button><div class="items" id="ro"><div onclick="openForm('RO Service')">RO Service</div><div onclick="openForm('Filter Change')">Filter Change</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button><div class="items" id="geyser"><div onclick="openForm('Geyser Repair')">Repair</div><div onclick="openForm('Geyser Installation')">Installation</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button><div class="items" id="cooler"><div onclick="openForm('Cooler Repair')">Cooler Repair</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button><div class="items" id="microwave"><div onclick="openForm('Microwave Repair')">Microwave Repair</div></div></div>
-  <div class="service"><button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button><div class="items" id="bed"><div onclick="openForm('Bed Fitting')">Bed Fitting</div></div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+    <div class="items" id="ac">
+      <div onclick="openForm('AC Repair')">AC Repair</div>
+      <div onclick="openForm('AC Installation')">AC Installation</div>
+      <div onclick="openForm('AC General Service')">AC General Service</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+    <div class="items" id="fridge">
+      <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+      <div onclick="openForm('Gas Filling')">Gas Filling</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+    <div class="items" id="wash">
+      <div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+      <div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+    <div class="items" id="chimney">
+      <div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+      <div onclick="openForm('Chimney Repair')">Repair</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+    <div class="items" id="tv">
+      <div onclick="openForm('LED / LCD Repair')">LED / LCD Repair</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+    <div class="items" id="ro">
+      <div onclick="openForm('RO Service')">RO Service</div>
+      <div onclick="openForm('Filter Change')">Filter Change</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+    <div class="items" id="geyser">
+      <div onclick="openForm('Geyser Repair')">Repair</div>
+      <div onclick="openForm('Geyser Installation')">Installation</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+    <div class="items" id="cooler">
+      <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
+    <div class="items" id="microwave">
+      <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+    </div>
+  </div>
+
+  <div class="service"><button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+    <div class="items" id="bed">
+      <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+    </div>
+  </div>
 </div>
 
-<div id="formBox"><div id="formInner"><h3 id="serviceName"></h3><input id="custName" placeholder="Customer Name"><input id="custMobile" placeholder="Mobile Number"><textarea id="custIssue" placeholder="Problem / Issue"></textarea><textarea id="custAddress" placeholder="Address"></textarea><button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button><button class="btn-red" onclick="closeForm()">Close</button></div></div>
+<div id="formBox">
+  <div id="formInner">
+    <h3 id="serviceName"></h3>
+    <input id="custName" placeholder="Customer Name">
+    <input id="custMobile" placeholder="Mobile Number">
+    <textarea id="custIssue" placeholder="Problem / Issue"></textarea>
+    <textarea id="custAddress" placeholder="Address"></textarea>
+    <button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
+    <button class="btn-red" onclick="closeForm()">Close</button>
+  </div>
+</div>
 
 <div id="contactPrompt">
   <h3>Why Contact Us?</h3>
@@ -93,7 +159,6 @@ footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; backgrou
 </footer>
 
 <script>
-// JS REFERENCES
 const formBox = document.getElementById("formBox");
 const serviceName = document.getElementById("serviceName");
 const custName = document.getElementById("custName");
@@ -113,6 +178,14 @@ function toggleService(id){
 function openForm(service){
   selectedService = service;
   serviceName.innerText = service;
+
+  // ===== Clear old form data =====
+  custName.value = "";
+  custMobile.value = "";
+  custIssue.value = "";
+  custAddress.value = "";
+  // =============================
+
   formBox.style.display = "block";
 }
 
@@ -124,7 +197,6 @@ function sendWhatsApp(){
   window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg), "_blank");
 }
 
-// Fade in contact prompt
 window.addEventListener("scroll", () => {
   const scrollPosition = window.scrollY + window.innerHeight;
   const elementPosition = contactPrompt.offsetTop;

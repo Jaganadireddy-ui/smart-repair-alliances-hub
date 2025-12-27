@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Smart Repair Alliances Hub</title>
 
 <style>
@@ -22,53 +21,32 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 26px;
-}
-
-header p {
-  margin: 6px 0;
-}
-
-.btn-group {
-  margin-top: 15px;
 }
 
 .btn {
   display: inline-block;
+  margin-top: 12px;
   padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  margin: 5px;
-}
-
-.call-btn {
-  background: #28a745;
-}
-
-.whatsapp-btn {
   background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .section {
   padding: 20px;
 }
 
-h2 {
-  color: #0d6efd;
-  margin-bottom: 15px;
-}
-
-/* Service Cards */
-.card {
-  background: white;
+.service-box {
+  background: #fff;
   border-radius: 10px;
   margin-bottom: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 
-.card-title {
+.service-header {
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
@@ -77,39 +55,31 @@ h2 {
   cursor: pointer;
 }
 
-.card-options {
+.service-options {
   display: none;
   padding: 15px;
+  background: #f9f9f9;
 }
 
-.card-options a {
+.service-options a {
   display: block;
-  margin-bottom: 10px;
   padding: 10px;
-  background: #eef2ff;
-  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #e9ecef;
   text-decoration: none;
+  border-radius: 6px;
   color: #000;
   font-weight: 500;
 }
 
-.card-options a:hover {
-  background: #dbe4ff;
-}
-
-/* Contact box */
-.contact-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  margin-bottom: 30px;
+.service-options a:hover {
+  background: #d0ebff;
 }
 
 footer {
+  text-align: center;
   background: #222;
   color: white;
-  text-align: center;
   padding: 15px;
   font-size: 14px;
 }
@@ -121,82 +91,57 @@ footer {
 <header>
   <h1>Smart Repair Alliances Hub</h1>
   <p>Kadapa – Patel Road | Doorstep Service</p>
-
-  <div class="btn-group">
-    <a class="btn call-btn" href="tel:6303715808">📞 Call Now</a>
-    <a class="btn whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
-  </div>
+  <a class="btn" href="https://wa.me/916303715808">💬 WhatsApp Now</a>
 </header>
 
 <div class="section">
 
 <h2>Our Services</h2>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">❄️ AC Service</div>
-  <div class="card-options">
+<!-- AC -->
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">❄️ AC Service</div>
+  <div class="service-options">
     <a href="tel:6303715808">AC Repair</a>
+    <a href="tel:6303715808">AC Installation</a>
+    <a href="tel:6303715808">AC Service</a>
+  </div>
+</div>
+
+<!-- Refrigerator -->
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🧊 Refrigerator</div>
+  <div class="service-options">
+    <a href="tel:6303715808">Refrigerator Repair</a>
     <a href="tel:6303715808">New Installation</a>
-    <a href="tel:6303715808">General Service</a>
+    <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🧺 Washing Machine</div>
-  <div class="card-options">
+<!-- Washing Machine -->
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🌀 Washing Machine</div>
+  <div class="service-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🧊 Refrigerator</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Gas Filling</a>
-    <a href="tel:6303715808">Service</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">💧 Water Purifier (RO)</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Filter Change</a>
-    <a href="tel:6303715808">Service</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">📺 TV</div>
-  <div class="card-options">
+<!-- Chimney -->
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🔥 Chimney</div>
+  <div class="service-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Service</a>
+    <a href="tel:6303715808">Cleaning / Service</a>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🌬️ Cooler</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Service</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🔥 Chimney</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Cleaning</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">📡 DTH</div>
-  <div class="card-options">
+<!-- DTH -->
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">📡 DTH Service</div>
+  <div class="service-options">
     <a href="tel:6303715808">New Connection</a>
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Re-installation</a>
@@ -205,25 +150,16 @@ footer {
 
 </div>
 
-<div class="section">
-  <div class="contact-box">
-    <h2>Contact Details</h2>
-    <p><b>Business:</b> Smart Repair Alliances Hub</p>
-    <p><b>Phone:</b> 6303715808</p>
-    <p><b>WhatsApp:</b> 6303715808</p>
-    <p><b>Area:</b> Patel Road, YSR Kadapa</p>
-    <p><b>Working Hours:</b> 8:00 AM – 9:00 PM (All Days)</p>
-  </div>
-</div>
-
 <footer>
-  © 2025 Smart Repair Alliances Hub | Kadapa
+  <p>📍 Patel Road, YSR Kadapa</p>
+  <p>📞 6303715808 | 🕘 8 AM – 9 PM</p>
 </footer>
 
 <script>
-function toggle(el) {
-  let box = el.nextElementSibling;
-  box.style.display = box.style.display === "block" ? "none" : "block";
+function toggleService(element) {
+  const content = element.nextElementSibling;
+  content.style.display =
+    content.style.display === "block" ? "none" : "block";
 }
 </script>
 

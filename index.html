@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Smart Repair Alliances Hub</title>
 
 <style>
@@ -10,6 +11,39 @@ body {
   font-family: Arial, sans-serif;
   background: #f2f4f8;
   margin: 0;
+}
+
+header {
+  background: #0d6efd;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.top-buttons {
+  margin-top: 10px;
+}
+
+.top-buttons a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.call-btn { background: #198754; }
+.whatsapp-btn { background: #25D366; }
+
+.language {
+  margin-top: 10px;
+}
+
+select {
+  padding: 6px;
+  border-radius: 6px;
 }
 
 h2 {
@@ -57,9 +91,28 @@ h2 {
 
 <body>
 
-<h2>Our Services</h2>
+<header>
+  <h1 id="title">Smart Repair Alliances Hub</h1>
+  <p id="subtitle">Kadapa – Patel Road | Doorstep Service</p>
 
-<!-- 1 -->
+  <div class="top-buttons">
+    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808" target="_blank">💬 WhatsApp</a>
+  </div>
+
+  <div class="language">
+    <select onchange="changeLang(this.value)">
+      <option value="en">English</option>
+      <option value="te">తెలుగు</option>
+      <option value="hi">हिंदी</option>
+    </select>
+  </div>
+</header>
+
+<h2 id="serviceTitle">Our Services</h2>
+
+<!-- SERVICES -->
+
 <div class="service">
 <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
 <div class="items" id="ac">
@@ -69,54 +122,45 @@ h2 {
 </div>
 </div>
 
-<!-- 2 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
 <div class="items" id="fridge">
   <div><a href="tel:6303715808">Fridge Repair</a></div>
   <div><a href="tel:6303715808">Gas Filling</a></div>
-  <div><a href="tel:6303715808">Cooling Issue</a></div>
 </div>
 </div>
 
-<!-- 3 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
 <div class="items" id="wash">
   <div><a href="tel:6303715808">Top Load Repair</a></div>
   <div><a href="tel:6303715808">Front Load Repair</a></div>
-  <div><a href="tel:6303715808">Drum Problem</a></div>
 </div>
 </div>
 
-<!-- 4 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
 <div class="items" id="chimney">
-  <div><a href="tel:6303715808">Chimney Cleaning</a></div>
-  <div><a href="tel:6303715808">Chimney Repair</a></div>
+  <div><a href="tel:6303715808">Cleaning</a></div>
+  <div><a href="tel:6303715808">Repair</a></div>
 </div>
 </div>
 
-<!-- 5 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
 <div class="items" id="dth">
   <div><a href="tel:6303715808">New Connection</a></div>
-  <div><a href="tel:6303715808">Signal Problem</a></div>
+  <div><a href="tel:6303715808">Signal Issue</a></div>
 </div>
 </div>
 
-<!-- 6 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
 <div class="items" id="tv">
   <div><a href="tel:6303715808">LED / LCD Repair</a></div>
-  <div><a href="tel:6303715808">Display Issue</a></div>
 </div>
 </div>
 
-<!-- 7 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier (RO)</button>
 <div class="items" id="ro">
@@ -125,42 +169,55 @@ h2 {
 </div>
 </div>
 
-<!-- 8 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
 <div class="items" id="geyser">
-  <div><a href="tel:6303715808">Geyser Repair</a></div>
+  <div><a href="tel:6303715808">Repair</a></div>
   <div><a href="tel:6303715808">Installation</a></div>
 </div>
 </div>
 
-<!-- 9 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
 <div class="items" id="cooler">
   <div><a href="tel:6303715808">Cooler Repair</a></div>
-  <div><a href="tel:6303715808">Motor Issue</a></div>
 </div>
 </div>
 
-<!-- 10 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
 <div class="items" id="bed">
   <div><a href="tel:6303715808">Bed Fitting</a></div>
-  <div><a href="tel:6303715808">Repair Service</a></div>
 </div>
 </div>
 
 <script>
 function toggleService(id) {
-  document.querySelectorAll(".items").forEach(item => {
-    if (item.id === id) {
-      item.style.display = item.style.display === "block" ? "none" : "block";
+  document.querySelectorAll(".items").forEach(el => {
+    if (el.id === id) {
+      el.style.display = el.style.display === "block" ? "none" : "block";
     } else {
-      item.style.display = "none";
+      el.style.display = "none";
     }
   });
+}
+
+function changeLang(lang) {
+  if (lang === "te") {
+    document.getElementById("title").innerText = "స్మార్ట్ రిపేర్ అలయన్స్ హబ్";
+    document.getElementById("subtitle").innerText = "కడప – పటేల్ రోడ్ | డోర్ స్టెప్ సర్వీస్";
+    document.getElementById("serviceTitle").innerText = "మా సేవలు";
+  } 
+  else if (lang === "hi") {
+    document.getElementById("title").innerText = "स्मार्ट रिपेयर एलायंस हब";
+    document.getElementById("subtitle").innerText = "कडपा – पटेल रोड | डोरस्टेप सर्विस";
+    document.getElementById("serviceTitle").innerText = "हमारी सेवाएं";
+  } 
+  else {
+    document.getElementById("title").innerText = "Smart Repair Alliances Hub";
+    document.getElementById("subtitle").innerText = "Kadapa – Patel Road | Doorstep Service";
+    document.getElementById("serviceTitle").innerText = "Our Services";
+  }
 }
 </script>
 

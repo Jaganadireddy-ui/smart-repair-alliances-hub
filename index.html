@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,74 +8,110 @@
 
 <style>
 body {
-  font-family: Arial;
-  background: #f2f2f2;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f4f8;
 }
 
 header {
   background: #0d6efd;
   color: white;
+  padding: 25px;
   text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+header p {
+  margin: 6px 0;
+}
+
+.btn-group {
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.call-btn {
+  background: #28a745;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+}
+
+.section {
   padding: 20px;
 }
 
-button {
-  width: 100%;
+h2 {
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+/* Service Cards */
+.card {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.card-title {
   padding: 15px;
   font-size: 18px;
-  border: none;
+  font-weight: bold;
   background: #0d6efd;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
-  border-radius: 8px;
 }
 
-.service-box {
-  background: white;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.options {
+.card-options {
   display: none;
-  margin-top: 10px;
+  padding: 15px;
 }
 
-.options a {
+.card-options a {
   display: block;
-  background: #e9ecff;
-  margin: 6px 0;
+  margin-bottom: 10px;
   padding: 10px;
-  text-decoration: none;
-  color: black;
+  background: #eef2ff;
   border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
 }
 
-.call {
-  background: green;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: block;
-  font-weight: bold;
+.card-options a:hover {
+  background: #dbe4ff;
 }
 
-.whatsapp {
-  background: #25d366;
+/* Contact box */
+.contact-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+}
+
+footer {
+  background: #222;
   color: white;
-  padding: 12px;
   text-align: center;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: block;
-  font-weight: bold;
+  padding: 15px;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -83,77 +119,111 @@ button {
 <body>
 
 <header>
-  <h2>Smart Repair Alliances Hub</h2>
-  <p>Patel Road, YSR Kadapa</p>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa – Patel Road | Doorstep Service</p>
+
+  <div class="btn-group">
+    <a class="btn call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="btn whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
 </header>
 
-<a class="call" href="tel:6303715808">📞 Call Now</a>
-<a class="whatsapp" href="https://wa.me/916303715808">💬 WhatsApp</a>
+<div class="section">
 
-<div class="service-box">
-  <button onclick="toggle('ac')">❄️ AC Service</button>
-  <div id="ac" class="options">
+<h2>Our Services</h2>
+
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">❄️ AC Service</div>
+  <div class="card-options">
+    <a href="tel:6303715808">AC Repair</a>
+    <a href="tel:6303715808">New Installation</a>
+    <a href="tel:6303715808">General Service</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">🧺 Washing Machine</div>
+  <div class="card-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="service-box">
-  <button onclick="toggle('wm')">🧺 Washing Machine</button>
-  <div id="wm" class="options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
-  </div>
-</div>
-
-<div class="service-box">
-  <button onclick="toggle('fridge')">🧊 Refrigerator</button>
-  <div id="fridge" class="options">
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">🧊 Refrigerator</div>
+  <div class="card-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Gas Filling</a>
+    <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="service-box">
-  <button onclick="toggle('ro')">💧 Water Purifier</button>
-  <div id="ro" class="options">
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">💧 Water Purifier (RO)</div>
+  <div class="card-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Filter Change</a>
+    <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="service-box">
-  <button onclick="toggle('tv')">📺 TV</button>
-  <div id="tv" class="options">
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">📺 TV</div>
+  <div class="card-options">
     <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Installation</a>
+    <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<div class="service-box">
-  <button onclick="toggle('chimney')">🔥 Chimney</button>
-  <div id="chimney" class="options">
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">🌬️ Cooler</div>
+  <div class="card-options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Service</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">🔥 Chimney</div>
+  <div class="card-options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">Cleaning</a>
-    <a href="tel:6303715808">Repair</a>
   </div>
 </div>
 
-<div class="service-box">
-  <button onclick="toggle('dth')">📡 DTH</button>
-  <div id="dth" class="options">
+<div class="card">
+  <div class="card-title" onclick="toggle(this)">📡 DTH</div>
+  <div class="card-options">
     <a href="tel:6303715808">New Connection</a>
     <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Re-installation</a>
   </div>
 </div>
 
+</div>
+
+<div class="section">
+  <div class="contact-box">
+    <h2>Contact Details</h2>
+    <p><b>Business:</b> Smart Repair Alliances Hub</p>
+    <p><b>Phone:</b> 6303715808</p>
+    <p><b>WhatsApp:</b> 6303715808</p>
+    <p><b>Area:</b> Patel Road, YSR Kadapa</p>
+    <p><b>Working Hours:</b> 8:00 AM – 9:00 PM (All Days)</p>
+  </div>
+</div>
+
+<footer>
+  © 2025 Smart Repair Alliances Hub | Kadapa
+</footer>
+
 <script>
-function toggle(id) {
-  var box = document.getElementById(id);
-  if (box.style.display === "block") {
-    box.style.display = "none";
-  } else {
-    box.style.display = "block";
-  }
+function toggle(el) {
+  let box = el.nextElementSibling;
+  box.style.display = box.style.display === "block" ? "none" : "block";
 }
 </script>
 

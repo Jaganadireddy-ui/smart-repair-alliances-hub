@@ -4,118 +4,93 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Repair Alliances Hub | Kadapa Appliance Repair</title>
-
-<meta name="description" content="AC, Washing Machine, Refrigerator, RO, TV, Geyser, Cooler, Chimney, Microwave, DTH Repair Service in Kadapa Patel Road.">
+<title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f6f9;
+  background: #f2f4f8;
 }
 
+/* HEADER */
 header {
   background: #0d6efd;
   color: white;
-  padding: 25px 15px;
+  padding: 25px;
   text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 22px;
 }
 
-header p {
-  margin: 6px 0 12px;
-}
-
-.btn-group a {
+.btn {
   display: inline-block;
-  margin: 6px;
-  padding: 12px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.call-btn {
-  background: #ffc107;
-  color: #000;
-}
-
-.whatsapp-btn {
+  margin-top: 12px;
+  padding: 12px 22px;
   background: #25d366;
-  color: #fff;
-}
-
-.section {
-  background: white;
-  margin: 12px;
-  padding: 18px;
-  border-radius: 12px;
-}
-
-.section h2 {
-  color: #0d6efd;
-  margin-bottom: 12px;
-}
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.service-box {
-  background: #f1f3f6;
-  padding: 14px;
-  border-radius: 12px;
-  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
 }
 
-.price {
-  display: block;
-  margin-top: 6px;
-  color: #d63384;
-  font-size: 14px;
+/* SECTION */
+.section {
+  padding: 20px;
 }
 
-.footer {
+h2 {
+  color: #0d6efd;
+}
+
+/* SERVICE BOX */
+.service-box {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.service-header {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #0d6efd;
+  color: white;
+  cursor: pointer;
+}
+
+.service-options {
+  display: none;
+  padding: 15px;
+  background: #f9f9f9;
+}
+
+.service-options a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #e9ecef;
+  text-decoration: none;
+  border-radius: 6px;
+  color: black;
+  font-weight: 500;
+}
+
+.service-options a:hover {
+  background: #d0ebff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
   background: #222;
   color: white;
-  text-align: center;
   padding: 15px;
   font-size: 14px;
-}
-
-.sticky-buttons {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  z-index: 999;
-}
-
-.sticky-buttons a {
-  padding: 14px 22px;
-  border-radius: 30px;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.sticky-call {
-  background: #007bff;
-}
-
-.sticky-whatsapp {
-  background: #25d366;
 }
 </style>
 </head>
@@ -124,66 +99,73 @@ header p {
 
 <header>
   <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa Patel Road – Doorstep Repair Service</p>
-
-  <div class="btn-group">
-    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
-    <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
-  </div>
+  <p>Kadapa – Patel Road | Doorstep Service</p>
+  <a class="btn" href="https://wa.me/916303715808">💬 WhatsApp Now</a>
 </header>
 
 <div class="section">
-  <h2>Our Repair Services</h2>
 
-  <div class="services">
-    <div class="service-box">AC Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Washing Machine Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Refrigerator Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Water Purifier (RO) <span class="price">MRP ₹500</span></div>
-    <div class="service-box">TV Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Geyser Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Air Cooler Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Chimney Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Microwave Oven Repair <span class="price">MRP ₹500</span></div>
-    <div class="service-box">DTH Service <span class="price">MRP ₹500</span></div>
-    <div class="service-box">Double Cot Bed Fitting <span class="price">MRP ₹500</span></div>
+<h2>Our Services</h2>
+
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">❄️ AC Service</div>
+  <div class="service-options">
+    <a href="tel:6303715808">AC Repair</a>
+    <a href="tel:6303715808">AC Installation</a>
+    <a href="tel:6303715808">AC Service</a>
   </div>
 </div>
 
-<div class="section">
-  <h2>Why Choose Us?</h2>
-  <ul>
-    <li>✔ Experienced Technicians</li>
-    <li>✔ Fast Doorstep Service</li>
-    <li>✔ Affordable Charges</li>
-    <li>✔ Genuine Spare Parts</li>
-    <li>✔ Service in Kadapa City</li>
-  </ul>
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🧊 Refrigerator</div>
+  <div class="service-options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">New Installation</a>
+    <a href="tel:6303715808">Service</a>
+  </div>
 </div>
 
-<div class="section">
-  <h2>Service Area</h2>
-  <p>
-    Patel Road, Old Bus Stand, RTC Bus Stand, NGO Colony,
-    Seven Roads, YSR Circle and nearby areas in Kadapa.
-  </p>
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🌀 Washing Machine</div>
+  <div class="service-options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Installation</a>
+    <a href="tel:6303715808">Service</a>
+  </div>
 </div>
 
-<div class="section">
-  <h2>Contact Details</h2>
-  <p><b>Phone:</b> 6303715808</p>
-  <p><b>WhatsApp:</b> 6303715808</p>
-  <p><b>Languages:</b> Telugu, English, Hindi</p>
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">🔥 Chimney</div>
+  <div class="service-options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Installation</a>
+    <a href="tel:6303715808">Cleaning</a>
+  </div>
 </div>
 
-<div class="footer">
-  © 2025 Smart Repair Alliances Hub | Kadapa
+<div class="service-box">
+  <div class="service-header" onclick="toggleService(this)">📡 DTH Service</div>
+  <div class="service-options">
+    <a href="tel:6303715808">New Connection</a>
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Re-installation</a>
+  </div>
 </div>
 
-<div class="sticky-buttons">
-  <a class="sticky-call" href="tel:6303715808">📞 Call</a>
-  <a class="sticky-whatsapp" href="https://wa.me/916303715808">💬 WhatsApp</a>
 </div>
+
+<footer>
+  <p>📍 Patel Road, YSR Kadapa</p>
+  <p>📞 6303715808 | 🕘 8 AM – 9 PM</p>
+</footer>
+
+<script>
+function toggleService(el) {
+  const content = el.nextElementSibling;
+  content.style.display =
+    content.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>

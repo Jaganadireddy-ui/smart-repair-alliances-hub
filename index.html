@@ -135,14 +135,12 @@ footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; backgrou
 <div id="formBox">
   <div id="formInner">
     <h3 id="serviceName"></h3>
-    <form id="serviceForm">
-      <input name="custName" id="custName" placeholder="Customer Name">
-      <input name="custMobile" id="custMobile" placeholder="Mobile Number">
-      <textarea name="custIssue" id="custIssue" placeholder="Problem / Issue"></textarea>
-      <textarea name="custAddress" id="custAddress" placeholder="Address"></textarea>
-      <button type="button" class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
-      <button type="button" class="btn-red" onclick="closeForm()">Close</button>
-    </form>
+    <input id="custName" placeholder="Customer Name">
+    <input id="custMobile" placeholder="Mobile Number">
+    <textarea id="custIssue" placeholder="Problem / Issue"></textarea>
+    <textarea id="custAddress" placeholder="Address"></textarea>
+    <button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
+    <button class="btn-red" onclick="closeForm()">Close</button>
   </div>
 </div>
 
@@ -163,52 +161,42 @@ footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; backgrou
 <script>
 const formBox = document.getElementById("formBox");
 const serviceName = document.getElementById("serviceName");
+const custName = document.getElementById("custName");
+const custMobile = document.getElementById("custMobile");
+const custIssue = document.getElementById("custIssue");
+const custAddress = document.getElementById("custAddress");
 const contactPrompt = document.getElementById("contactPrompt");
+
 let selectedService = "";
 
-// Toggle dropdowns & auto-hide others
 function toggleService(id){
   document.querySelectorAll(".items").forEach(el => {
-    if(el.id === id){
-      el.style.display = el.style.display === "block" ? "none" : "block";
-    } else {
-      el.style.display = "none";
-    }
+    el.style.display = el.id === id && el.style.display !== "block" ? "block" : "none";
   });
-
-  // Reset & hide form whenever switching services
-  const form = document.getElementById("serviceForm");
-  form.reset();
-  formBox.style.display = "none";
 }
 
-// Open form & reset fields
 function openForm(service){
   selectedService = service;
   serviceName.innerText = service;
 
-  const form = document.getElementById("serviceForm");
-  form.reset();
+  // ===== Clear old form data =====
+  custName.value = "";
+  custMobile.value = "";
+  custIssue.value = "";
+  custAddress.value = "";
+  // =============================
 
   formBox.style.display = "block";
 }
 
-// Close form
 formBox.addEventListener("click", e => { if(e.target === formBox) closeForm(); });
 function closeForm(){ formBox.style.display="none"; }
 
-// Send WhatsApp
 function sendWhatsApp(){
-  const custName = document.getElementById("custName").value;
-  const custMobile = document.getElementById("custMobile").value;
-  const custIssue = document.getElementById("custIssue").value;
-  const custAddress = document.getElementById("custAddress").value;
-
-  const msg = `Service: ${selectedService}\nName: ${custName}\nMobile: ${custMobile}\nIssue: ${custIssue}\nAddress: ${custAddress}`;
+  const msg = `Service: ${selectedService}\nName: ${custName.value}\nMobile: ${custMobile.value}\nIssue: ${custIssue.value}\nAddress: ${custAddress.value}`;
   window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg), "_blank");
 }
 
-// Fade in contact prompt
 window.addEventListener("scroll", () => {
   const scrollPosition = window.scrollY + window.innerHeight;
   const elementPosition = contactPrompt.offsetTop;
@@ -220,3 +208,4 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+

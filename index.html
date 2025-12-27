@@ -2,81 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smart Repair Alliances Hub | Kadapa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="AC, Washing Machine, Refrigerator, DTH, Chimney, TV, RO service in Kadapa. Doorstep service available.">
-<meta name="keywords" content="AC repair Kadapa, fridge repair, washing machine service, DTH service">
+<title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background:#f2f4f7;
-  margin:0;
+  font-family: Arial;
+  background: #f2f4f8;
+  margin: 0;
 }
 
 header {
-  background:#0d6efd;
-  color:white;
-  padding:20px;
-  text-align:center;
+  background: #0d6efd;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
-.btn {
-  background:#25D366;
-  color:white;
-  padding:12px 18px;
-  border-radius:8px;
-  text-decoration:none;
-  display:inline-block;
-  margin:8px;
-}
-
-.callbtn {
-  background:#198754;
-}
-
-.section {
-  padding:20px;
+.service {
+  margin: 12px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
 }
 
 .service-btn {
-  width:100%;
-  background:#0d6efd;
-  color:white;
-  padding:14px;
-  margin:10px 0;
-  border:none;
-  border-radius:10px;
-  font-size:18px;
-  cursor:pointer;
+  width: 100%;
+  padding: 15px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
 }
 
-.service-btn:hover {
-  background:#084dbf;
+.options {
+  display: none;
+  padding: 10px;
 }
 
-#formBox {
-  display:none;
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  margin:20px;
-}
-
-input, textarea {
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
-footer {
-  background:#222;
-  color:white;
-  padding:15px;
-  text-align:center;
+.option {
+  background: #eef1f5;
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
 </style>
 </head>
@@ -84,81 +56,86 @@ footer {
 <body>
 
 <header>
-  <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Patel Road | Doorstep Service</p>
-
-  <a class="btn callbtn" href="tel:6303715808">📞 Call Now</a>
-  <a class="btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
-
-  <p>Languages: Telugu | English | Hindi</p>
+  <h2>Smart Repair Alliances Hub</h2>
+  <p>Kadapa – Doorstep Service</p>
 </header>
 
-<div class="section">
-  <h2>Our Services</h2>
-
-  <button class="service-btn" onclick="openForm('AC Repair')">❄️ AC Service</button>
-  <button class="service-btn" onclick="openForm('Refrigerator Repair')">🧊 Refrigerator</button>
-  <button class="service-btn" onclick="openForm('Washing Machine Repair')">🧺 Washing Machine</button>
-  <button class="service-btn" onclick="openForm('Chimney Repair')">🔥 Chimney</button>
-  <button class="service-btn" onclick="openForm('DTH Service')">📡 DTH Service</button>
-  <button class="service-btn" onclick="openForm('TV Repair')">📺 TV Repair</button>
-  <button class="service-btn" onclick="openForm('Water Purifier Service')">💧 Water Purifier</button>
-  <button class="service-btn" onclick="openForm('Cooler Repair')">🌀 Cooler</button>
-  <button class="service-btn" onclick="openForm('Microwave Repair')">🍲 Microwave Oven</button>
-  <button class="service-btn" onclick="openForm('Double Cot Fitting')">🛏️ Double Cot Fitting</button>
-</div>
-
-<!-- FORM -->
-<div id="formBox">
-  <h3 id="serviceTitle"></h3>
-
-  <input type="text" id="name" placeholder="Customer Name">
-  <input type="tel" id="phone" placeholder="Phone Number">
-  <textarea id="address" placeholder="Address"></textarea>
-
-  <button class="btn" onclick="sendWhatsApp()">Send on WhatsApp</button>
-  <br><br>
-  <button onclick="closeForm()">⬅ Back</button>
-</div>
-
-<footer>
-  <p><b>Service Area:</b> Patel Road, Old Bus Stand, RTC, NGO Colony, RIMS, Seven Roads, Kadapa</p>
-  <p>© 2025 Smart Repair Alliances Hub</p>
-</footer>
-
 <script>
-let selectedService = "";
+let customerName = prompt("Enter your name:");
 
-function openForm(service) {
-  selectedService = service;
-  document.getElementById("serviceTitle").innerText = service + " - Customer Details";
-  document.getElementById("formBox").style.display = "block";
-  window.scrollTo(0, document.body.scrollHeight);
+function toggle(id) {
+  document.querySelectorAll(".options").forEach(x => {
+    if (x.id === id) {
+      x.style.display = x.style.display === "block" ? "none" : "block";
+    } else {
+      x.style.display = "none";
+    }
+  });
 }
 
-function closeForm() {
-  document.getElementById("formBox").style.display = "none";
-}
-
-function sendWhatsApp() {
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let address = document.getElementById("address").value;
-
-  if(name === "" || phone === "" || address === ""){
-    alert("Please fill all details");
-    return;
-  }
-
+function sendWhatsApp(service, type) {
+  let name = customerName || "Customer";
   let message =
-    "Service: " + selectedService + "%0A" +
-    "Name: " + name + "%0A" +
-    "Phone: " + phone + "%0A" +
-    "Address: " + address;
+    "Hello, my name is " + name +
+    ". I need " + service + " - " + type +
+    ". Please contact me.";
 
-  window.open("https://wa.me/916303715808?text=" + message, "_blank");
+  let url = "https://wa.me/916303715808?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
 }
 </script>
+
+<h3 style="padding:10px;">Our Services</h3>
+
+<!-- AC -->
+<div class="service">
+  <button class="service-btn" onclick="toggle('ac')">❄️ AC Service</button>
+  <div class="options" id="ac">
+    <div class="option" onclick="sendWhatsApp('AC','Repair')">AC Repair</div>
+    <div class="option" onclick="sendWhatsApp('AC','Installation')">AC Installation</div>
+    <div class="option" onclick="sendWhatsApp('AC','General Service')">AC Service</div>
+  </div>
+</div>
+
+<!-- Refrigerator -->
+<div class="service">
+  <button class="service-btn" onclick="toggle('fridge')">🧊 Refrigerator</button>
+  <div class="options" id="fridge">
+    <div class="option" onclick="sendWhatsApp('Refrigerator','Repair')">Repair</div>
+    <div class="option" onclick="sendWhatsApp('Refrigerator','Gas Filling')">Gas Filling</div>
+    <div class="option" onclick="sendWhatsApp('Refrigerator','Service')">Service</div>
+  </div>
+</div>
+
+<!-- Washing Machine -->
+<div class="service">
+  <button class="service-btn" onclick="toggle('wash')">🧺 Washing Machine</button>
+  <div class="options" id="wash">
+    <div class="option" onclick="sendWhatsApp('Washing Machine','Repair')">Repair</div>
+    <div class="option" onclick="sendWhatsApp('Washing Machine','Installation')">Installation</div>
+    <div class="option" onclick="sendWhatsApp('Washing Machine','Service')">Service</div>
+  </div>
+</div>
+
+<!-- Chimney -->
+<div class="service">
+  <button class="service-btn" onclick="toggle('chimney')">🔥 Chimney</button>
+  <div class="options" id="chimney">
+    <div class="option" onclick="sendWhatsApp('Chimney','Cleaning')">Cleaning</div>
+    <div class="option" onclick="sendWhatsApp('Chimney','Repair')">Repair</div>
+    <div class="option" onclick="sendWhatsApp('Chimney','Installation')">Installation</div>
+  </div>
+</div>
+
+<!-- DTH -->
+<div class="service">
+  <button class="service-btn" onclick="toggle('dth')">📡 DTH Service</button>
+  <div class="options" id="dth">
+    <div class="option" onclick="sendWhatsApp('DTH','New Connection')">New Connection</div>
+    <div class="option" onclick="sendWhatsApp('DTH','Signal Issue')">Signal Issue</div>
+    <div class="option" onclick="sendWhatsApp('DTH','Relocation')">Relocation</div>
+  </div>
+</div>
 
 </body>
 </html>

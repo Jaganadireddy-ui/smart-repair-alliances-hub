@@ -2,81 +2,89 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smart Repair Alliances Hub | Kadapa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="AC, Washing Machine, Refrigerator, DTH, Chimney, TV, RO service in Kadapa. Doorstep service available.">
-<meta name="keywords" content="AC repair Kadapa, fridge repair, washing machine service, DTH service">
+<title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
   font-family: Arial, sans-serif;
-  background:#f2f4f7;
-  margin:0;
+  background: #f2f4f8;
+  margin: 0;
 }
 
 header {
-  background:#0d6efd;
-  color:white;
-  padding:20px;
-  text-align:center;
+  background: #0d6efd;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
-.btn {
-  background:#25D366;
-  color:white;
-  padding:12px 18px;
-  border-radius:8px;
-  text-decoration:none;
-  display:inline-block;
-  margin:8px;
+.top-buttons {
+  margin-top: 10px;
 }
 
-.callbtn {
-  background:#198754;
+.top-buttons a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.section {
-  padding:20px;
+.call-btn { background: #198754; }
+.whatsapp-btn { background: #25D366; }
+
+.language {
+  margin-top: 10px;
+}
+
+select {
+  padding: 6px;
+  border-radius: 6px;
+}
+
+h2 {
+  padding: 15px;
+}
+
+.service {
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
 .service-btn {
-  width:100%;
-  background:#0d6efd;
-  color:white;
-  padding:14px;
-  margin:10px 0;
-  border:none;
-  border-radius:10px;
-  font-size:18px;
-  cursor:pointer;
+  width: 100%;
+  background: #0d6efd;
+  color: white;
+  padding: 15px;
+  border: none;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
 }
 
-.service-btn:hover {
-  background:#084dbf;
+.items {
+  display: none;
+  padding: 10px;
 }
 
-#formBox {
-  display:none;
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
-  margin:20px;
+.items div {
+  background: #eef1f5;
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 6px;
 }
 
-input, textarea {
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
-footer {
-  background:#222;
-  color:white;
-  padding:15px;
-  text-align:center;
+.items a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 </style>
 </head>
@@ -84,81 +92,141 @@ footer {
 <body>
 
 <header>
-  <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Patel Road | Doorstep Service</p>
+  <h1 id="title">Smart Repair Alliances Hub</h1>
+  <p id="subtitle">Kadapa – Patel Road | Doorstep Service  | Timings: 8:00 AM to 9:00PM |OWNER: Angeri Rambhupal Reddy</p>
 
-  <a class="btn callbtn" href="tel:6303715808">📞 Call Now</a>
-  <a class="btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  <div class="top-buttons">
+    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808" target="_blank">💬 WhatsApp</a>
+  </div>
 
-  <p>Languages: Telugu | English | Hindi</p>
+  <div class="language">
+    <select onchange="changeLang(this.value)">
+      <option value="en">English</option>
+      <option value="te">తెలుగు</option>
+      <option value="hi">हिंदी</option>
+    </select>
+  </div>
 </header>
 
-<div class="section">
-  <h2>Our Services</h2>
+<h2 id="serviceTitle">Our Services</h2>
 
-  <button class="service-btn" onclick="openForm('AC Repair')">❄️ AC Service</button>
-  <button class="service-btn" onclick="openForm('Refrigerator Repair')">🧊 Refrigerator</button>
-  <button class="service-btn" onclick="openForm('Washing Machine Repair')">🧺 Washing Machine</button>
-  <button class="service-btn" onclick="openForm('Chimney Repair')">🔥 Chimney</button>
-  <button class="service-btn" onclick="openForm('DTH Service')">📡 DTH Service</button>
-  <button class="service-btn" onclick="openForm('TV Repair')">📺 TV Repair</button>
-  <button class="service-btn" onclick="openForm('Water Purifier Service')">💧 Water Purifier</button>
-  <button class="service-btn" onclick="openForm('Cooler Repair')">🌀 Cooler</button>
-  <button class="service-btn" onclick="openForm('Microwave Repair')">🍲 Microwave Oven</button>
-  <button class="service-btn" onclick="openForm('Double Cot Fitting')">🛏️ Double Cot Fitting</button>
+<!-- SERVICES -->
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+<div class="items" id="ac">
+  <div><a href="tel:6303715808">AC Repair</a></div>
+  <div><a href="tel:6303715808">AC Installation</a></div>
+  <div><a href="tel:6303715808">AC General Service</a></div>
+</div>
 </div>
 
-<!-- FORM -->
-<div id="formBox">
-  <h3 id="serviceTitle"></h3>
-
-  <input type="text" id="name" placeholder="Customer Name">
-  <input type="tel" id="phone" placeholder="Phone Number">
-  <textarea id="address" placeholder="Address"></textarea>
-
-  <button class="btn" onclick="sendWhatsApp()">Send on WhatsApp</button>
-  <br><br>
-  <button onclick="closeForm()">⬅ Back</button>
+<div class="service">
+<button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+<div class="items" id="fridge">
+  <div><a href="tel:6303715808">Fridge Repair</a></div>
+  <div><a href="tel:6303715808">Gas Filling</a></div>
+</div>
 </div>
 
-<footer>
-  <p><b>Service Area:</b> Patel Road, Old Bus Stand, RTC, NGO Colony, RIMS, Seven Roads, Kadapa</p>
-  <p>© 2025 Smart Repair Alliances Hub</p>
-</footer>
+<div class="service">
+<button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+<div class="items" id="wash">
+  <div><a href="tel:6303715808">Top Load Repair</a></div>
+  <div><a href="tel:6303715808">Front Load Repair</a></div>
+  <div><a href="tel:6303715808">Semi Automatic</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+<div class="items" id="chimney">
+  <div><a href="tel:6303715808">Cleaning</a></div>
+  <div><a href="tel:6303715808">Repair</a></div>
+   <div><a href="tel:6303715808">Installation</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
+<div class="items" id="dth">
+  <div><a href="tel:6303715808">New Connection</a></div>
+  <div><a href="tel:6303715808">Signal Issue</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+<div class="items" id="tv">
+  <div><a href="tel:6303715808">LED / LCD Repair</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier (RO)</button>
+<div class="items" id="ro">
+  <div><a href="tel:6303715808">New Installation</a></div>
+  <div><a href="tel:6303715808">RO Service</a></div>
+  <div><a href="tel:6303715808">Filter Change</a></div>
+  
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+  <div><a href="tel:6303715808">Repair</a></div>
+  <div><a href="tel:6303715808">Installation</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+<div class="items" id="cooler">
+  <div><a href="tel:6303715808">Cooler Repair</a></div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+  <div><a href="tel:6303715808">Bed Fitting</a></div>
+</div>
+</div>
 
 <script>
-let selectedService = "";
-
-function openForm(service) {
-  selectedService = service;
-  document.getElementById("serviceTitle").innerText = service + " - Customer Details";
-  document.getElementById("formBox").style.display = "block";
-  window.scrollTo(0, document.body.scrollHeight);
+function toggleService(id) {
+  document.querySelectorAll(".items").forEach(el => {
+    if (el.id === id) {
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    } else {
+      el.style.display = "none";
+    }
+  });
 }
 
-function closeForm() {
-  document.getElementById("formBox").style.display = "none";
-}
-
-function sendWhatsApp() {
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let address = document.getElementById("address").value;
-
-  if(name === "" || phone === "" || address === ""){
-    alert("Please fill all details");
-    return;
+function changeLang(lang) {
+  if (lang === "te") {
+    document.getElementById("title").innerText = "స్మార్ట్ రిపేర్ అలయన్స్ హబ్";
+    document.getElementById("subtitle").innerText = "కడప – పటేల్ రోడ్ | డోర్ స్టెప్ సర్వీస్";
+    document.getElementById("serviceTitle").innerText = "మా సేవలు";
+  } 
+  else if (lang === "hi") {
+    document.getElementById("title").innerText = "स्मार्ट रिपेयर एलायंस हब";
+    document.getElementById("subtitle").innerText = "कडपा – पटेल रोड | डोरस्टेप सर्विस";
+    document.getElementById("serviceTitle").innerText = "हमारी सेवाएं";
+  } 
+  else {
+    document.getElementById("title").innerText = "Smart Repair Alliances Hub";
+    document.getElementById("subtitle").innerText = "Kadapa – Patel Road | Doorstep Service";
+    document.getElementById("serviceTitle").innerText = "Our Services";
   }
-
-  let message =
-    "Service: " + selectedService + "%0A" +
-    "Name: " + name + "%0A" +
-    "Phone: " + phone + "%0A" +
-    "Address: " + address;
-
-  window.open("https://wa.me/916303715808?text=" + message, "_blank");
 }
 </script>
 
 </body>
 </html>
+
+
+

@@ -1,87 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
+  font-family: Arial;
+  background: #f2f2f2;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f4f8;
 }
 
 header {
   background: #0d6efd;
   color: white;
-  padding: 25px;
   text-align: center;
-}
-
-header h1 {
-  margin: 0;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 22px;
-  background: #25d366;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.section {
   padding: 20px;
 }
 
-.service-box {
-  background: #fff;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  overflow: hidden;
-}
-
-.service-header {
+button {
+  width: 100%;
   padding: 15px;
   font-size: 18px;
-  font-weight: bold;
+  border: none;
   background: #0d6efd;
   color: white;
   cursor: pointer;
+  margin-top: 10px;
+  border-radius: 8px;
 }
 
-.service-options {
-  display: none;
-  padding: 15px;
-  background: #f9f9f9;
-}
-
-.service-options a {
-  display: block;
+.service-box {
+  background: white;
+  margin: 10px;
   padding: 10px;
-  margin-bottom: 8px;
-  background: #e9ecef;
+  border-radius: 10px;
+}
+
+.options {
+  display: none;
+  margin-top: 10px;
+}
+
+.options a {
+  display: block;
+  background: #e9ecff;
+  margin: 6px 0;
+  padding: 10px;
   text-decoration: none;
+  color: black;
   border-radius: 6px;
-  color: #000;
-  font-weight: 500;
 }
 
-.service-options a:hover {
-  background: #d0ebff;
-}
-
-footer {
-  text-align: center;
-  background: #222;
+.call {
+  background: green;
   color: white;
-  padding: 15px;
-  font-size: 14px;
+  padding: 12px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.whatsapp {
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -89,77 +83,77 @@ footer {
 <body>
 
 <header>
-  <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Patel Road | Doorstep Service</p>
-  <a class="btn" href="https://wa.me/916303715808">💬 WhatsApp Now</a>
+  <h2>Smart Repair Alliances Hub</h2>
+  <p>Patel Road, YSR Kadapa</p>
 </header>
 
-<div class="section">
+<a class="call" href="tel:6303715808">📞 Call Now</a>
+<a class="whatsapp" href="https://wa.me/916303715808">💬 WhatsApp</a>
 
-<h2>Our Services</h2>
-
-<!-- AC -->
 <div class="service-box">
-  <div class="service-header" onclick="toggleService(this)">❄️ AC Service</div>
-  <div class="service-options">
-    <a href="tel:6303715808">AC Repair</a>
-    <a href="tel:6303715808">AC Installation</a>
-    <a href="tel:6303715808">AC Service</a>
-  </div>
-</div>
-
-<!-- Refrigerator -->
-<div class="service-box">
-  <div class="service-header" onclick="toggleService(this)">🧊 Refrigerator</div>
-  <div class="service-options">
-    <a href="tel:6303715808">Refrigerator Repair</a>
-    <a href="tel:6303715808">New Installation</a>
-    <a href="tel:6303715808">Service</a>
-  </div>
-</div>
-
-<!-- Washing Machine -->
-<div class="service-box">
-  <div class="service-header" onclick="toggleService(this)">🌀 Washing Machine</div>
-  <div class="service-options">
+  <button onclick="toggle('ac')">❄️ AC Service</button>
+  <div id="ac" class="options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
-<!-- Chimney -->
 <div class="service-box">
-  <div class="service-header" onclick="toggleService(this)">🔥 Chimney</div>
-  <div class="service-options">
+  <button onclick="toggle('wm')">🧺 Washing Machine</button>
+  <div id="wm" class="options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Cleaning / Service</a>
   </div>
 </div>
 
-<!-- DTH -->
 <div class="service-box">
-  <div class="service-header" onclick="toggleService(this)">📡 DTH Service</div>
-  <div class="service-options">
+  <button onclick="toggle('fridge')">🧊 Refrigerator</button>
+  <div id="fridge" class="options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Gas Filling</a>
+  </div>
+</div>
+
+<div class="service-box">
+  <button onclick="toggle('ro')">💧 Water Purifier</button>
+  <div id="ro" class="options">
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Filter Change</a>
+  </div>
+</div>
+
+<div class="service-box">
+  <button onclick="toggle('tv')">📺 TV</button>
+  <div id="tv" class="options">
+    <a href="tel:6303715808">Repair</a>
+  </div>
+</div>
+
+<div class="service-box">
+  <button onclick="toggle('chimney')">🔥 Chimney</button>
+  <div id="chimney" class="options">
+    <a href="tel:6303715808">Cleaning</a>
+    <a href="tel:6303715808">Repair</a>
+  </div>
+</div>
+
+<div class="service-box">
+  <button onclick="toggle('dth')">📡 DTH</button>
+  <div id="dth" class="options">
     <a href="tel:6303715808">New Connection</a>
     <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Re-installation</a>
   </div>
 </div>
 
-</div>
-
-<footer>
-  <p>📍 Patel Road, YSR Kadapa</p>
-  <p>📞 6303715808 | 🕘 8 AM – 9 PM</p>
-</footer>
-
 <script>
-function toggleService(element) {
-  const content = element.nextElementSibling;
-  content.style.display =
-    content.style.display === "block" ? "none" : "block";
+function toggle(id) {
+  var box = document.getElementById(id);
+  if (box.style.display === "block") {
+    box.style.display = "none";
+  } else {
+    box.style.display = "block";
+  }
 }
 </script>
 

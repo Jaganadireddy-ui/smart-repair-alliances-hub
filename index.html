@@ -20,6 +20,10 @@ header {
   text-align: center;
 }
 
+.top-buttons {
+  margin-top: 10px;
+}
+
 .top-buttons a {
   display: inline-block;
   margin: 5px;
@@ -33,14 +37,18 @@ header {
 .call-btn { background: #198754; }
 .whatsapp-btn { background: #25D366; }
 
-.language { margin-top: 10px; }
+.language {
+  margin-top: 10px;
+}
 
 select {
   padding: 6px;
   border-radius: 6px;
 }
 
-h2 { padding: 15px; }
+h2 {
+  padding: 15px;
+}
 
 .service {
   margin: 10px;
@@ -74,37 +82,33 @@ h2 { padding: 15px; }
   cursor: pointer;
 }
 
-/* FORM MODAL */
+/* FORM POPUP */
 #formBox {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
-  z-index: 999;
+  z-index: 9999;
 }
 
-.form-content {
+#formInner {
   background: #fff;
-  max-width: 400px;
+  max-width: 420px;
   margin: 60px auto;
   padding: 20px;
   border-radius: 10px;
 }
 
-.form-content h3 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.form-content input,
-.form-content textarea,
-.form-content button {
+#formInner input,
+#formInner textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  margin: 6px 0;
 }
 
-.form-content button {
+.btn-green {
+  width: 100%;
+  padding: 12px;
   background: #25D366;
   color: white;
   border: none;
@@ -112,8 +116,13 @@ h2 { padding: 15px; }
   cursor: pointer;
 }
 
-.close-btn {
+.btn-red {
+  width: 100%;
+  padding: 10px;
   background: #dc3545;
+  color: white;
+  border: none;
+  margin-top: 6px;
 }
 </style>
 </head>
@@ -121,27 +130,18 @@ h2 { padding: 15px; }
 <body>
 
 <header>
-  <h1 id="title">Smart Repair Alliances Hub</h1>
-  <p id="subtitle">Kadapa – Patel Road | Doorstep Service</p>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa – Patel Road | Doorstep Service</p>
 
   <div class="top-buttons">
     <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
-    <a class="whatsapp-btn" href="https://wa.me/916303715808" target="_blank">💬 WhatsApp</a>
-  </div>
-
-  <div class="language">
-    <select onchange="changeLang(this.value)">
-      <option value="en">English</option>
-      <option value="te">తెలుగు</option>
-      <option value="hi">हिंदी</option>
-    </select>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
   </div>
 </header>
 
-<h2 id="serviceTitle">Our Services</h2>
+<h2>Our Services</h2>
 
 <!-- SERVICES -->
-
 <div class="service">
 <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
 <div class="items" id="ac">
@@ -154,7 +154,7 @@ h2 { padding: 15px; }
 <div class="service">
 <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
 <div class="items" id="fridge">
-  <div onclick="openForm('Fridge Repair')">Fridge Repair</div>
+  <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
   <div onclick="openForm('Gas Filling')">Gas Filling</div>
 </div>
 </div>
@@ -178,23 +178,60 @@ h2 { padding: 15px; }
 <div class="service">
 <button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
 <div class="items" id="dth">
-  <div onclick="openForm('New DTH Connection')">New Connection</div>
+  <div onclick="openForm('DTH New Connection')">New Connection</div>
   <div onclick="openForm('DTH Signal Issue')">Signal Issue</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+<div class="items" id="tv">
+  <div onclick="openForm('TV Repair')">LED / LCD Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+<div class="items" id="ro">
+  <div onclick="openForm('RO Service')">RO Service</div>
+  <div onclick="openForm('Filter Change')">Filter Change</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+  <div onclick="openForm('Geyser Repair')">Repair</div>
+  <div onclick="openForm('Geyser Installation')">Installation</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+<div class="items" id="cooler">
+  <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+  <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
 </div>
 </div>
 
 <!-- FORM POPUP -->
 <div id="formBox">
-  <div class="form-content">
-    <h3 id="serviceName">Service</h3>
+  <div id="formInner">
+    <h3 id="serviceName"></h3>
 
-    <input type="text" id="custName" placeholder="Customer Name">
-    <input type="tel" id="mobile" placeholder="Mobile Number">
-    <textarea id="issue" placeholder="Customer Issue"></textarea>
-    <textarea id="address" placeholder="Address"></textarea>
+    <input id="custName" placeholder="Customer Name">
+    <input id="custMobile" placeholder="Mobile Number">
+    <textarea id="custIssue" placeholder="Problem / Issue"></textarea>
+    <textarea id="custAddress" placeholder="Address"></textarea>
 
-    <button onclick="sendWhatsApp()">Submit to WhatsApp</button>
-    <button class="close-btn" onclick="closeForm()">Close</button>
+    <button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
+    <button class="btn-red" onclick="closeForm()">Close</button>
   </div>
 </div>
 
@@ -203,7 +240,7 @@ let selectedService = "";
 
 function toggleService(id) {
   document.querySelectorAll(".items").forEach(el => {
-    el.style.display = el.id === id && el.style.display !== "block" ? "block" : "none";
+    el.style.display = (el.id === id && el.style.display !== "block") ? "block" : "none";
   });
 }
 
@@ -219,9 +256,9 @@ function closeForm() {
 
 function sendWhatsApp() {
   let name = document.getElementById("custName").value;
-  let mobile = document.getElementById("mobile").value;
-  let issue = document.getElementById("issue").value;
-  let address = document.getElementById("address").value;
+  let mobile = document.getElementById("custMobile").value;
+  let issue = document.getElementById("custIssue").value;
+  let address = document.getElementById("custAddress").value;
 
   if (!name || !mobile || !issue || !address) {
     alert("Please fill all details");
@@ -235,24 +272,10 @@ Mobile: ${mobile}
 Issue: ${issue}
 Address: ${address}`;
 
-  let url = "https://wa.me/916303715808?text=" + encodeURIComponent(msg);
-  window.open(url, "_blank");
-}
-
-function changeLang(lang) {
-  if (lang === "te") {
-    title.innerText = "స్మార్ట్ రిపేర్ అలయన్స్ హబ్";
-    subtitle.innerText = "కడప – పటేల్ రోడ్ | డోర్ స్టెప్ సర్వీస్";
-    serviceTitle.innerText = "మా సేవలు";
-  } else if (lang === "hi") {
-    title.innerText = "स्मार्ट रिपेयर एलायंस हब";
-    subtitle.innerText = "कडपा – पटेल रोड | डोरस्टेप सर्विस";
-    serviceTitle.innerText = "हमारी सेवाएं";
-  } else {
-    title.innerText = "Smart Repair Alliances Hub";
-    subtitle.innerText = "Kadapa – Patel Road | Doorstep Service";
-    serviceTitle.innerText = "Our Services";
-  }
+  window.open(
+    "https://wa.me/916303715808?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 </script>
 

@@ -2,143 +2,190 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Service Booking</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Repair Alliances Hub</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+body { margin:0; font-family:Arial,sans-serif; background:#f2f4f8; }
+header { background:#0d6efd; color:white; text-align:center; padding:15px; }
+header p { font-size:13px; margin:5px 0 10px 0; }
+.top-buttons a { display:inline-block; margin:6px; padding:8px 14px; border-radius:6px; color:white; text-decoration:none; font-weight:bold; font-size:14px; }
+.call-btn { background:#198754; }
+.whatsapp-btn { background:#25D366; }
+
+h2 { padding:10px; text-align:center; }
+
+.services-wrapper { display:grid; grid-template-columns:1fr; gap:15px; padding:10px; min-height:120vh; }
+@media (min-width:768px){
+  .services-wrapper { grid-template-columns:1fr 1fr; max-width:1200px; margin:auto; }
 }
 
-.service-btn {
-  width: 100%;
-  padding: 12px;
-  margin: 5px 0;
-  background: #007bff;
-  color: white;
-  border: none;
-  font-size: 16px;
-}
+.service { background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+.service-btn { width:100%; padding:14px; background:#0d6efd; color:white; border:none; font-size:16px; text-align:left; cursor:pointer; }
+.items { display:none; padding:10px; }
+.items div { background:#eef1f5; padding:12px; margin:6px 0; border-radius:6px; cursor:pointer; }
 
-.items {
-  display: none;
-  background: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-}
+#formBox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:999; }
+#formInner { background:white; max-width:420px; margin:60px auto; padding:20px; border-radius:10px; }
+#formInner input,#formInner textarea { width:100%; padding:10px; margin:6px 0; border-radius:6px; border:1px solid #ccc; }
 
-.items div {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-}
+#errorMsg{color:red;font-size:14px}
 
-#formBox {
-  display: none;
-  background: white;
-  padding: 15px;
-  margin-top: 10px;
-}
+.btn-green { width:100%; padding:12px; background:#25D366; border:none; color:white; font-size:15px; border-radius:6px; cursor:pointer; margin-top:6px; }
+.btn-red { width:100%; padding:10px; background:#dc3545; border:none; color:white; font-size:14px; border-radius:6px; cursor:pointer; margin-top:6px; }
 
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0;
+#contactPrompt {
+  background:#eef1f5;
+  padding:12px 0;
+  text-align:center;
+  width:100%;
+  margin-top:20px;
+  opacity:0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
+#contactPrompt.show { opacity:1; transform:translateY(0); }
 
-.btn-green {
-  background: green;
-  color: white;
-  padding: 10px;
-  border: none;
-  width: 100%;
-}
-
-.btn-red {
-  background: red;
-  color: white;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  margin-top: 5px;
-}
+footer { background:#0d6efd; color:white; text-align:center; padding:20px 10px; margin-top:20px; }
+footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; background:#198754; border-radius:6px; color:white; text-decoration:none; }
 </style>
 </head>
 
 <body>
 
-<!-- SERVICE BUTTONS -->
-<button class="service-btn" onclick="toggleService('ac')">AC</button>
+<header>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa – Doorstep Service | 8:00 AM to 9:00 PM | 📞 6303715808</p>
+  <div class="top-buttons">
+    <a class="call-btn" href="tel:6303715808">📞 Call</a>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
+</header>
+
+<h2>Our Services</h2>
+
+<div class="services-wrapper">
+
+<!-- SERVICES (UNCHANGED) -->
+<div class="service"><button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
 <div class="items" id="ac">
-  <div onclick="openForm('AC Repair')">AC Repair</div>
-</div>
+<div onclick="openForm('AC Repair')">AC Repair</div>
+<div onclick="openForm('AC Installation')">AC Installation</div>
+<div onclick="openForm('AC General Service')">AC General Service</div>
+</div></div>
 
-<button class="service-btn" onclick="toggleService('cooler')">Cooler</button>
+<div class="service"><button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+<div class="items" id="fridge">
+<div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+<div onclick="openForm('Gas Filling')">Gas Filling</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+<div class="items" id="wash">
+<div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+<div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+<div class="items" id="chimney">
+<div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+<div onclick="openForm('Chimney Repair')">Repair</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+<div class="items" id="tv">
+<div onclick="openForm('LED / LCD Repair')">LED / LCD Repair</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+<div class="items" id="ro">
+<div onclick="openForm('RO Service')">RO Service</div>
+<div onclick="openForm('Filter Change')">Filter Change</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+<div onclick="openForm('Geyser Repair')">Repair</div>
+<div onclick="openForm('Geyser Installation')">Installation</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
 <div class="items" id="cooler">
-  <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
-</div>
+<div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+</div></div>
 
-<button class="service-btn" onclick="toggleService('microwave')">Microwave</button>
+<div class="service"><button class="service-btn" onclick="toggleService('microwave')">🍳 Microwave Oven</button>
 <div class="items" id="microwave">
-  <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+<div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+</div></div>
+
+<div class="service"><button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+<div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+</div></div>
+
 </div>
 
 <!-- FORM -->
 <div id="formBox">
-  <h3 id="serviceName"></h3>
+<div id="formInner">
+<h3 id="serviceName"></h3>
 
-  <form id="serviceForm">
-    <input id="custName" placeholder="Customer Name" required>
-    <input id="custMobile" placeholder="Mobile Number" required>
-    <textarea id="custIssue" placeholder="Issue" required></textarea>
-    <textarea id="custAddress" placeholder="Address" required></textarea>
+<input id="custName" placeholder="Customer Name">
+<input id="custMobile" placeholder="Mobile Number">
+<textarea id="custIssue" placeholder="Problem / Issue"></textarea>
+<textarea id="custAddress" placeholder="Address"></textarea>
 
-    <button type="button" class="btn-green" onclick="sendWhatsApp()">Send WhatsApp</button>
-    <button type="button" class="btn-red" onclick="closeForm()">Close</button>
-  </form>
+<p id="errorMsg"></p>
+
+<button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
+<button class="btn-red" onclick="closeForm()">Close</button>
+</div>
 </div>
 
+<!-- WHY CONTACT -->
+<div id="contactPrompt">
+<h3>Why Contact Us?</h3>
+<p>✅ Quick Repairs<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
+<a class="call-btn" href="tel:6303715808">📞 Call</a>
+<a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+</div>
+
+<footer>
+<h3>Smart Repair Alliances Hub</h3>
+<p>4/21, Kotha Nellore (V), Khajipeta (M)<br>Kadapa, AP – 516163</p>
+<a href="tel:6303715808" class="phone">📞 6303715808</a>
+<p>© 2025 Smart Repair Alliances Hub</p>
+</footer>
+
 <script>
-let selectedService = "";
+let selectedService="";
 
 function toggleService(id){
-  // hide all dropdowns
-  document.querySelectorAll(".items").forEach(el => {
-    el.style.display = "none";
-  });
-
-  // show selected
-  document.getElementById(id).style.display = "block";
-
-  // reset & hide form
-  document.getElementById("serviceForm").reset();
-  document.getElementById("formBox").style.display = "none";
+document.querySelectorAll(".items").forEach(el=>el.style.display="none");
+document.getElementById(id).style.display="block";
+closeForm();
 }
 
 function openForm(service){
-  selectedService = service;
-  document.getElementById("serviceName").innerText = service;
-
-  // IMPORTANT: RESET OLD DATA
-  document.getElementById("serviceForm").reset();
-
-  document.getElementById("formBox").style.display = "block";
+selectedService=service;
+serviceName.innerText=service;
+custName.value=custMobile.value=custIssue.value=custAddress.value="";
+errorMsg.innerText="";
+formBox.style.display="block";
 }
 
 function closeForm(){
-  document.getElementById("formBox").style.display = "none";
-  document.getElementById("serviceForm").reset();
+formBox.style.display="none";
 }
 
 function sendWhatsApp(){
-  let name = custName.value;
-  let mobile = custMobile.value;
-  let issue = custIssue.value;
-  let address = custAddress.value;
-
-  let msg = `Service: ${selectedService}%0AName: ${name}%0AMobile: ${mobile}%0AIssue: ${issue}%0AAddress: ${address}`;
-
-  window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`, "_blank");
+if(custName.value==""||custMobile.value==""||custIssue.value==""||custAddress.value==""){
+errorMsg.innerText="All fields are required";
+return;
+}
+let msg=`Service: ${selectedService}\nName: ${custName.value}\nMobile: ${custMobile.value}\nIssue: ${custIssue.value}\nAddress: ${custAddress.value}`;
+window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
 

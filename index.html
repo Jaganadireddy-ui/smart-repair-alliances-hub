@@ -1,16 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Repair Alliances Hub | Kadapa</title>
+
+<meta name="description" content="AC, Washing Machine, Refrigerator, RO, TV, Chimney, DTH repair service in Kadapa. Doorstep service available.">
+
 <style>
-.service-box {
-  background: #fff;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f9;
+}
+
+header {
+  background: #0d6efd;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.btn-box {
+  margin-top: 15px;
+}
+
+.call-btn, .whatsapp-btn {
+  padding: 14px 22px;
   border-radius: 10px;
-  margin: 12px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px;
+  display: inline-block;
+}
+
+.call-btn {
+  background: #0dcaf0;
+  color: #000;
+}
+
+.whatsapp-btn {
+  background: #25D366;
+  color: #fff;
+}
+
+section {
+  padding: 15px;
+}
+
+/* Service cards */
+.service-box {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   overflow: hidden;
 }
 
 .service-header {
-  padding: 15px;
-  font-weight: bold;
+  padding: 16px;
   font-size: 18px;
+  font-weight: bold;
   background: #0d6efd;
   color: white;
   cursor: pointer;
@@ -18,17 +73,17 @@
 
 .service-options {
   display: none;
-  padding: 15px;
   background: #f9f9f9;
+  padding: 12px;
 }
 
 .service-options a {
   display: block;
-  margin: 8px 0;
-  padding: 10px;
+  padding: 12px;
+  margin: 6px 0;
   background: #e9ecef;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 6px;
   color: #000;
   font-weight: 500;
 }
@@ -36,42 +91,42 @@
 .service-options a:hover {
   background: #d0ebff;
 }
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
 </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa – Patel Road | Doorstep Service</p>
+
+  <div class="btn-box">
+    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
+</header>
 
 <section>
   <h2>Our Services</h2>
 
-  <!-- AC -->
   <div class="service-box">
     <div class="service-header" onclick="toggleService(this)">❄️ AC Service</div>
     <div class="service-options">
       <a href="tel:6303715808">AC Repair</a>
       <a href="tel:6303715808">AC Installation</a>
-      <a href="tel:6303715808">AC Service</a>
+      <a href="tel:6303715808">AC General Service</a>
     </div>
   </div>
 
-  <!-- Refrigerator -->
-  <div class="service-box">
-    <div class="service-header" onclick="toggleService(this)">🧊 Refrigerator</div>
-    <div class="service-options">
-      <a href="tel:6303715808">Fridge Repair</a>
-      <a href="tel:6303715808">New Fridge Installation</a>
-      <a href="tel:6303715808">Fridge Service</a>
-    </div>
-  </div>
-
-  <!-- Chimney -->
-  <div class="service-box">
-    <div class="service-header" onclick="toggleService(this)">🔥 Chimney</div>
-    <div class="service-options">
-      <a href="tel:6303715808">Chimney Repair</a>
-      <a href="tel:6303715808">New Chimney Installation</a>
-      <a href="tel:6303715808">Chimney Cleaning / Service</a>
-    </div>
-  </div>
-
-  <!-- Washing Machine -->
   <div class="service-box">
     <div class="service-header" onclick="toggleService(this)">🌀 Washing Machine</div>
     <div class="service-options">
@@ -81,22 +136,44 @@
     </div>
   </div>
 
-  <!-- DTH -->
   <div class="service-box">
-    <div class="service-header" onclick="toggleService(this)">📡 DTH Service</div>
+    <div class="service-header" onclick="toggleService(this)">🧊 Refrigerator</div>
     <div class="service-options">
-      <a href="tel:6303715808">New DTH Connection</a>
-      <a href="tel:6303715808">DTH Repair</a>
-      <a href="tel:6303715808">DTH Re-installation</a>
+      <a href="tel:6303715808">Repair</a>
+      <a href="tel:6303715808">New Installation</a>
+      <a href="tel:6303715808">Service</a>
     </div>
   </div>
 
-</section>
+  <div class="service-box">
+    <div class="service-header" onclick="toggleService(this)">💧 Water Purifier (RO)</div>
+    <div class="service-options">
+      <a href="tel:6303715808">RO Repair</a>
+      <a href="tel:6303715808">RO Installation</a>
+      <a href="tel:6303715808">RO Service</a>
+    </div>
+  </div>
 
-<script>
-function toggleService(element) {
-  const content = element.nextElementSibling;
-  content.style.display =
-    content.style.display === "block" ? "none" : "block";
-}
-</script>
+  <div class="service-box">
+    <div class="service-header" onclick="toggleService(this)">📺 TV Service</div>
+    <div class="service-options">
+      <a href="tel:6303715808">TV Repair</a>
+      <a href="tel:6303715808">Wall Mount Installation</a>
+      <a href="tel:6303715808">TV Service</a>
+    </div>
+  </div>
+
+  <div class="service-box">
+    <div class="service-header" onclick="toggleService(this)">🔥 Chimney</div>
+    <div class="service-options">
+      <a href="tel:6303715808">Chimney Repair</a>
+      <a href="tel:6303715808">New Installation</a>
+      <a href="tel:6303715808">Cleaning / Service</a>
+    </div>
+  </div>
+
+  <div class="service-box">
+    <div class="service-header" onclick="toggleService(this)">📡 DTH Service</div>
+    <div class="service-options">
+      <a href="tel:6303715808">New Connection</a>
+      <a href="tel:6303715808">DTH

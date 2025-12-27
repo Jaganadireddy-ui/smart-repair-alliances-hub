@@ -8,222 +8,110 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #f2f4f8;
-}
-
-header {
-  background: #0d6efd;
-  color: white;
-  padding: 25px;
-  text-align: center;
-}
-
-header h1 {
   margin: 0;
-  font-size: 26px;
-}
-
-header p {
-  margin: 6px 0;
-}
-
-.btn-group {
-  margin-top: 15px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  margin: 5px;
-}
-
-.call-btn {
-  background: #28a745;
-}
-
-.whatsapp-btn {
-  background: #25d366;
-}
-
-.section {
-  padding: 20px;
 }
 
 h2 {
-  color: #0d6efd;
-  margin-bottom: 15px;
-}
-
-/* Service Cards */
-.card {
-  background: white;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-}
-
-.card-title {
   padding: 15px;
-  font-size: 18px;
-  font-weight: bold;
+}
+
+.service {
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.service-btn {
+  width: 100%;
   background: #0d6efd;
   color: white;
+  padding: 15px;
+  border: none;
+  font-size: 18px;
+  text-align: left;
   cursor: pointer;
 }
 
-.card-options {
+.items {
   display: none;
-  padding: 15px;
-}
-
-.card-options a {
-  display: block;
-  margin-bottom: 10px;
   padding: 10px;
-  background: #eef2ff;
+}
+
+.items div {
+  background: #eef1f5;
+  padding: 12px;
+  margin: 6px 0;
   border-radius: 6px;
+}
+
+.items a {
   text-decoration: none;
-  color: #000;
+  color: black;
   font-weight: 500;
-}
-
-.card-options a:hover {
-  background: #dbe4ff;
-}
-
-/* Contact box */
-.contact-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  margin-bottom: 30px;
-}
-
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Patel Road | Doorstep Service</p>
-
-  <div class="btn-group">
-    <a class="btn call-btn" href="tel:6303715808">📞 Call Now</a>
-    <a class="btn whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
-  </div>
-</header>
-
-<div class="section">
-
 <h2>Our Services</h2>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">❄️ AC Service</div>
-  <div class="card-options">
-    <a href="tel:6303715808">AC Repair</a>
-    <a href="tel:6303715808">New Installation</a>
-    <a href="tel:6303715808">General Service</a>
+<div class="service">
+  <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+  <div class="items" id="ac">
+    <div><a href="tel:6303715808">AC Repair</a></div>
+    <div><a href="tel:6303715808">AC Installation</a></div>
+    <div><a href="tel:6303715808">AC Service</a></div>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🧺 Washing Machine</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Service</a>
+<div class="service">
+  <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+  <div class="items" id="fridge">
+    <div><a href="tel:6303715808">Refrigerator Repair</a></div>
+    <div><a href="tel:6303715808">Gas Filling</a></div>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🧊 Refrigerator</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Gas Filling</a>
-    <a href="tel:6303715808">Service</a>
+<div class="service">
+  <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+  <div class="items" id="wash">
+    <div><a href="tel:6303715808">Top Load Repair</a></div>
+    <div><a href="tel:6303715808">Front Load Repair</a></div>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">💧 Water Purifier (RO)</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Filter Change</a>
-    <a href="tel:6303715808">Service</a>
+<div class="service">
+  <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+  <div class="items" id="chimney">
+    <div><a href="tel:6303715808">Cleaning</a></div>
+    <div><a href="tel:6303715808">Repair</a></div>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">📺 TV</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Service</a>
+<div class="service">
+  <button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
+  <div class="items" id="dth">
+    <div><a href="tel:6303715808">New Connection</a></div>
+    <div><a href="tel:6303715808">Repair</a></div>
   </div>
 </div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🌬️ Cooler</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Service</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">🔥 Chimney</div>
-  <div class="card-options">
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Cleaning</a>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-title" onclick="toggle(this)">📡 DTH</div>
-  <div class="card-options">
-    <a href="tel:6303715808">New Connection</a>
-    <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Re-installation</a>
-  </div>
-</div>
-
-</div>
-
-<div class="section">
-  <div class="contact-box">
-    <h2>Contact Details</h2>
-    <p><b>Business:</b> Smart Repair Alliances Hub</p>
-    <p><b>Phone:</b> 6303715808</p>
-    <p><b>WhatsApp:</b> 6303715808</p>
-    <p><b>Area:</b> Patel Road, YSR Kadapa</p>
-    <p><b>Working Hours:</b> 8:00 AM – 9:00 PM (All Days)</p>
-  </div>
-</div>
-
-<footer>
-  © 2025 Smart Repair Alliances Hub | Kadapa
-</footer>
 
 <script>
-function toggle(el) {
-  let box = el.nextElementSibling;
-  box.style.display = box.style.display === "block" ? "none" : "block";
+function toggleService(id) {
+  const all = document.querySelectorAll(".items");
+
+  all.forEach(box => {
+    if (box.id === id) {
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    } else {
+      box.style.display = "none";
+    }
+  });
 }
 </script>
 

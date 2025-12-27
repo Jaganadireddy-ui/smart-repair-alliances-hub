@@ -10,7 +10,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f6f9;
+  background: #f2f4f8;
 }
 
 header {
@@ -22,17 +22,33 @@ header {
 
 header h1 {
   margin: 0;
+  font-size: 26px;
+}
+
+header p {
+  margin: 6px 0;
+}
+
+.btn-group {
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.call-btn {
+  background: #28a745;
 }
 
 .whatsapp-btn {
-  display: inline-block;
-  margin-top: 12px;
   background: #25d366;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 .section {
@@ -44,12 +60,12 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* service cards */
+/* Service Cards */
 .card {
   background: white;
   border-radius: 10px;
   margin-bottom: 15px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
 .card-title {
@@ -70,7 +86,7 @@ h2 {
   display: block;
   margin-bottom: 10px;
   padding: 10px;
-  background: #e9ecef;
+  background: #eef2ff;
   border-radius: 6px;
   text-decoration: none;
   color: #000;
@@ -78,14 +94,23 @@ h2 {
 }
 
 .card-options a:hover {
-  background: #cfe2ff;
+  background: #dbe4ff;
+}
+
+/* Contact box */
+.contact-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
 }
 
 footer {
   background: #222;
   color: white;
-  padding: 15px;
   text-align: center;
+  padding: 15px;
   font-size: 14px;
 }
 </style>
@@ -96,18 +121,23 @@ footer {
 <header>
   <h1>Smart Repair Alliances Hub</h1>
   <p>Kadapa – Patel Road | Doorstep Service</p>
-  <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp Now</a>
+
+  <div class="btn-group">
+    <a class="btn call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="btn whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
 </header>
 
 <div class="section">
+
 <h2>Our Services</h2>
 
 <div class="card">
   <div class="card-title" onclick="toggle(this)">❄️ AC Service</div>
   <div class="card-options">
     <a href="tel:6303715808">AC Repair</a>
-    <a href="tel:6303715808">AC New Installation</a>
-    <a href="tel:6303715808">AC General Service</a>
+    <a href="tel:6303715808">New Installation</a>
+    <a href="tel:6303715808">General Service</a>
   </div>
 </div>
 
@@ -175,14 +205,24 @@ footer {
 
 </div>
 
+<div class="section">
+  <div class="contact-box">
+    <h2>Contact Details</h2>
+    <p><b>Business:</b> Smart Repair Alliances Hub</p>
+    <p><b>Phone:</b> 6303715808</p>
+    <p><b>WhatsApp:</b> 6303715808</p>
+    <p><b>Area:</b> Patel Road, YSR Kadapa</p>
+    <p><b>Working Hours:</b> 8:00 AM – 9:00 PM (All Days)</p>
+  </div>
+</div>
+
 <footer>
-  📍 Patel Road, YSR Kadapa <br>
-  📞 6303715808 | 🕘 8 AM – 9 PM
+  © 2025 Smart Repair Alliances Hub | Kadapa
 </footer>
 
 <script>
 function toggle(el) {
-  const box = el.nextElementSibling;
+  let box = el.nextElementSibling;
   box.style.display = box.style.display === "block" ? "none" : "block";
 }
 </script>

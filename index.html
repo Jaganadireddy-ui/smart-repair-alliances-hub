@@ -1,121 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smart Repair Alliances Hub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Repair Alliances Hub | Kadapa Appliance Repair</title>
+
+<meta name="description" content="AC, Washing Machine, Refrigerator, RO, TV, Geyser, Cooler, Chimney, Microwave, DTH Repair Service in Kadapa Patel Road.">
 
 <style>
 body {
-  font-family: Arial;
-  text-align: center;
-  padding: 40px;
-  background: #f2f4f8;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 14px 25px;
+header {
   background: #0d6efd;
   color: white;
-  border: none;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+header p {
+  margin: 6px 0 12px;
+}
+
+.btn-group a {
+  display: inline-block;
+  margin: 6px;
+  padding: 12px 18px;
   border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.call-btn {
+  background: #ffc107;
+  color: #000;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+  color: #fff;
 }
 
 .section {
-  display: none;
-}
-
-.box {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 12px auto;
-  width: 260px;
-  border-radius: 10px;
   background: white;
-  cursor: pointer;
+  margin: 12px;
+  padding: 18px;
+  border-radius: 12px;
 }
 
-.box:hover {
-  background: #e8f1ff;
+.section h2 {
+  color: #0d6efd;
+  margin-bottom: 12px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.service-box {
+  background: #f1f3f6;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.price {
+  display: block;
+  margin-top: 6px;
+  color: #d63384;
+  font-size: 14px;
+}
+
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.sticky-buttons {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  z-index: 999;
+}
+
+.sticky-buttons a {
+  padding: 14px 22px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sticky-call {
+  background: #007bff;
+}
+
+.sticky-whatsapp {
+  background: #25d366;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HOME -->
-<div id="home">
-  <h2>Smart Repair Alliances Hub</h2>
-  <button class="btn" onclick="openStep1()">Register / Request</button>
+<header>
+  <h1>Smart Repair Alliances Hub</h1>
+  <p>Kadapa Patel Road – Doorstep Repair Service</p>
+
+  <div class="btn-group">
+    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
+</header>
+
+<div class="section">
+  <h2>Our Repair Services</h2>
+
+  <div class="services">
+    <div class="service-box">AC Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Washing Machine Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Refrigerator Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Water Purifier (RO) <span class="price">MRP ₹500</span></div>
+    <div class="service-box">TV Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Geyser Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Air Cooler Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Chimney Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Microwave Oven Repair <span class="price">MRP ₹500</span></div>
+    <div class="service-box">DTH Service <span class="price">MRP ₹500</span></div>
+    <div class="service-box">Double Cot Bed Fitting <span class="price">MRP ₹500</span></div>
+  </div>
 </div>
 
-<!-- STEP 1 -->
-<div id="step1" class="section">
-  <h3>Select Service Type</h3>
-
-  <div class="box" onclick="selectType('Repair')">🔧 Repair</div>
-  <div class="box" onclick="selectType('New Purchase')">🆕 New One</div>
-  <div class="box" onclick="selectType('Service')">🛠 Service</div>
-
-  <br>
-  <button class="btn" onclick="goHome()">⬅ Back</button>
+<div class="section">
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✔ Experienced Technicians</li>
+    <li>✔ Fast Doorstep Service</li>
+    <li>✔ Affordable Charges</li>
+    <li>✔ Genuine Spare Parts</li>
+    <li>✔ Service in Kadapa City</li>
+  </ul>
 </div>
 
-<!-- STEP 2 -->
-<div id="step2" class="section">
-  <h3>Select Appliance</h3>
-
-  <div class="box" onclick="sendWA('AC')">AC</div>
-  <div class="box" onclick="sendWA('Washing Machine')">Washing Machine</div>
-  <div class="box" onclick="sendWA('Refrigerator')">Refrigerator</div>
-  <div class="box" onclick="sendWA('Water Purifier')">Water Purifier</div>
-  <div class="box" onclick="sendWA('TV')">TV</div>
-  <div class="box" onclick="sendWA('Cooler')">Cooler</div>
-  <div class="box" onclick="sendWA('Chimney')">Chimney</div>
-  <div class="box" onclick="sendWA('Microwave Oven')">Microwave Oven</div>
-  <div class="box" onclick="sendWA('DTH')">DTH</div>
-
-  <br>
-  <button class="btn" onclick="backToType()">⬅ Back</button>
+<div class="section">
+  <h2>Service Area</h2>
+  <p>
+    Patel Road, Old Bus Stand, RTC Bus Stand, NGO Colony,
+    Seven Roads, YSR Circle and nearby areas in Kadapa.
+  </p>
 </div>
 
-<script>
-let selectedType = "";
+<div class="section">
+  <h2>Contact Details</h2>
+  <p><b>Phone:</b> 6303715808</p>
+  <p><b>WhatsApp:</b> 6303715808</p>
+  <p><b>Languages:</b> Telugu, English, Hindi</p>
+</div>
 
-function openStep1() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("step1").style.display = "block";
-}
+<div class="footer">
+  © 2025 Smart Repair Alliances Hub | Kadapa
+</div>
 
-function goHome() {
-  document.getElementById("step1").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}
-
-function selectType(type) {
-  selectedType = type;
-  document.getElementById("step1").style.display = "none";
-  document.getElementById("step2").style.display = "block";
-}
-
-function backToType() {
-  document.getElementById("step2").style.display = "none";
-  document.getElementById("step1").style.display = "block";
-}
-
-function sendWA(service) {
-  let phone = "916303715808"; // your WhatsApp number
-  let message = Hello, I need ${selectedType} for ${service}. Please contact me.;
-  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
-}
-</script>
+<div class="sticky-buttons">
+  <a class="sticky-call" href="tel:6303715808">📞 Call</a>
+  <a class="sticky-whatsapp" href="https://wa.me/916303715808">💬 WhatsApp</a>
+</div>
 
 </body>
 </html>

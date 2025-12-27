@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Repair Alliances Hub</title>
+<title>Smart Repair Alliances Hub - Kadapa</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f2f4f8;
+  background: #f4f6f9;
 }
 
 header {
@@ -22,34 +22,24 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 26px;
 }
 
-header p {
-  margin: 6px 0;
-}
-
-.btn-group {
+.btns {
   margin-top: 15px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 12px 20px;
+  margin: 6px;
   border-radius: 8px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-weight: bold;
-  margin: 5px;
 }
 
-.call-btn {
-  background: #28a745;
-}
-
-.whatsapp-btn {
-  background: #25d366;
-}
+.call { background: #28a745; }
+.whatsapp { background: #25d366; }
 
 .section {
   padding: 20px;
@@ -57,10 +47,9 @@ header p {
 
 h2 {
   color: #0d6efd;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* Service Cards */
 .card {
   background: white;
   border-radius: 10px;
@@ -70,11 +59,11 @@ h2 {
 
 .card-title {
   padding: 15px;
-  font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
   background: #0d6efd;
   color: white;
-  cursor: pointer;
+  border-radius: 10px 10px 0 0;
 }
 
 .card-options {
@@ -84,26 +73,24 @@ h2 {
 
 .card-options a {
   display: block;
-  margin-bottom: 10px;
   padding: 10px;
+  margin-bottom: 8px;
   background: #eef2ff;
   border-radius: 6px;
   text-decoration: none;
   color: #000;
-  font-weight: 500;
 }
 
 .card-options a:hover {
-  background: #dbe4ff;
+  background: #dce4ff;
 }
 
-/* Contact box */
-.contact-box {
+.info-box {
   background: white;
-  padding: 20px;
+  padding: 18px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 footer {
@@ -111,7 +98,6 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  font-size: 14px;
 }
 </style>
 </head>
@@ -122,9 +108,9 @@ footer {
   <h1>Smart Repair Alliances Hub</h1>
   <p>Kadapa – Patel Road | Doorstep Service</p>
 
-  <div class="btn-group">
-    <a class="btn call-btn" href="tel:6303715808">📞 Call Now</a>
-    <a class="btn whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  <div class="btns">
+    <a class="btn call" href="tel:6303715808">📞 Call Now</a>
+    <a class="btn whatsapp" href="https://wa.me/916303715808">💬 WhatsApp</a>
   </div>
 </header>
 
@@ -135,8 +121,8 @@ footer {
 <div class="card">
   <div class="card-title" onclick="toggle(this)">❄️ AC Service</div>
   <div class="card-options">
-    <a href="tel:6303715808">AC Repair</a>
-    <a href="tel:6303715808">New Installation</a>
+    <a href="tel:6303715808">Repair</a>
+    <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">General Service</a>
   </div>
 </div>
@@ -173,7 +159,6 @@ footer {
   <div class="card-options">
     <a href="tel:6303715808">Repair</a>
     <a href="tel:6303715808">Installation</a>
-    <a href="tel:6303715808">Service</a>
   </div>
 </div>
 
@@ -189,8 +174,8 @@ footer {
   <div class="card-title" onclick="toggle(this)">🔥 Chimney</div>
   <div class="card-options">
     <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Installation</a>
     <a href="tel:6303715808">Cleaning</a>
+    <a href="tel:6303715808">Installation</a>
   </div>
 </div>
 
@@ -199,33 +184,22 @@ footer {
   <div class="card-options">
     <a href="tel:6303715808">New Connection</a>
     <a href="tel:6303715808">Repair</a>
-    <a href="tel:6303715808">Re-installation</a>
+    <a href="tel:6303715808">Re-install</a>
   </div>
 </div>
 
 </div>
 
 <div class="section">
-  <div class="contact-box">
+  <div class="info-box">
+    <h2>Why Contact Us?</h2>
+    <ul>
+      <li>✔ Experienced technicians</li>
+      <li>✔ Fast doorstep service</li>
+      <li>✔ Affordable pricing</li>
+      <li>✔ Genuine spare parts</li>
+      <li>✔ All services in Kadapa area</li>
+    </ul>
+
     <h2>Contact Details</h2>
-    <p><b>Business:</b> Smart Repair Alliances Hub</p>
-    <p><b>Phone:</b> 6303715808</p>
-    <p><b>WhatsApp:</b> 6303715808</p>
-    <p><b>Area:</b> Patel Road, YSR Kadapa</p>
-    <p><b>Working Hours:</b> 8:00 AM – 9:00 PM (All Days)</p>
-  </div>
-</div>
-
-<footer>
-  © 2025 Smart Repair Alliances Hub | Kadapa
-</footer>
-
-<script>
-function toggle(el) {
-  let box = el.nextElementSibling;
-  box.style.display = box.style.display === "block" ? "none" : "block";
-}
-</script>
-
-</body>
-</html>
+    <p><b>Business:</b> Smart Repair Alliances Hub

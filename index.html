@@ -20,10 +20,6 @@ header {
   text-align: center;
 }
 
-.top-buttons {
-  margin-top: 10px;
-}
-
 .top-buttons a {
   display: inline-block;
   margin: 5px;
@@ -53,7 +49,6 @@ h2 {
 .service {
   margin: 10px;
   border-radius: 10px;
-  overflow: hidden;
   background: white;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
@@ -82,7 +77,7 @@ h2 {
   cursor: pointer;
 }
 
-/* FORM POPUP */
+/* FORM */
 #formBox {
   display: none;
   position: fixed;
@@ -113,7 +108,6 @@ h2 {
   color: white;
   border: none;
   font-size: 16px;
-  cursor: pointer;
 }
 
 .btn-red {
@@ -130,16 +124,24 @@ h2 {
 <body>
 
 <header>
-  <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Patel Road | Doorstep Service</p>
+  <h1 id="titleText">Smart Repair Alliances Hub</h1>
+  <p id="subText">Kadapa – Doorstep Service</p>
 
   <div class="top-buttons">
-    <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+    <a class="call-btn" href="tel:6303715808">📞 Call</a>
     <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  </div>
+
+  <div class="language">
+    <select onchange="changeLang(this.value)">
+      <option value="en">English</option>
+      <option value="te">తెలుగు</option>
+      <option value="hi">हिंदी</option>
+    </select>
   </div>
 </header>
 
-<h2>Our Services</h2>
+<h2 id="serviceTitle">Our Services</h2>
 
 <!-- SERVICES -->
 <div class="service">
@@ -176,14 +178,6 @@ h2 {
 </div>
 
 <div class="service">
-<button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
-<div class="items" id="dth">
-  <div onclick="openForm('DTH New Connection')">New Connection</div>
-  <div onclick="openForm('DTH Signal Issue')">Signal Issue</div>
-</div>
-</div>
-
-<div class="service">
 <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
 <div class="items" id="tv">
   <div onclick="openForm('TV Repair')">LED / LCD Repair</div>
@@ -198,29 +192,7 @@ h2 {
 </div>
 </div>
 
-<div class="service">
-<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
-<div class="items" id="geyser">
-  <div onclick="openForm('Geyser Repair')">Repair</div>
-  <div onclick="openForm('Geyser Installation')">Installation</div>
-</div>
-</div>
-
-<div class="service">
-<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
-<div class="items" id="cooler">
-  <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
-</div>
-</div>
-
-<div class="service">
-<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
-<div class="items" id="bed">
-  <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
-</div>
-</div>
-
-<!-- FORM POPUP -->
+<!-- FORM -->
 <div id="formBox">
   <div id="formInner">
     <h3 id="serviceName"></h3>
@@ -240,13 +212,24 @@ let selectedService = "";
 
 function toggleService(id) {
   document.querySelectorAll(".items").forEach(el => {
-    el.style.display = (el.id === id && el.style.display !== "block") ? "block" : "none";
+    if (el.id === id) {
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    } else {
+      el.style.display = "none";
+    }
   });
 }
 
 function openForm(service) {
   selectedService = service;
   document.getElementById("serviceName").innerText = service;
+
+  // clear old data
+  document.getElementById("custName").value = "";
+  document.getElementById("custMobile").value = "";
+  document.getElementById("custIssue").value = "";
+  document.getElementById("custAddress").value = "";
+
   document.getElementById("formBox").style.display = "block";
 }
 
@@ -255,10 +238,10 @@ function closeForm() {
 }
 
 function sendWhatsApp() {
-  let name = document.getElementById("custName").value;
-  let mobile = document.getElementById("custMobile").value;
-  let issue = document.getElementById("custIssue").value;
-  let address = document.getElementById("custAddress").value;
+  let name = document.getElementById("custName").value.trim();
+  let mobile = document.getElementById("custMobile").value.trim();
+  let issue = document.getElementById("custIssue").value.trim();
+  let address = document.getElementById("custAddress").value.trim();
 
   if (!name || !mobile || !issue || !address) {
     alert("Please fill all details");
@@ -272,10 +255,26 @@ Mobile: ${mobile}
 Issue: ${issue}
 Address: ${address}`;
 
-  window.open(
-    "https://wa.me/916303715808?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
+  window.open("https://wa.me/916303715808?text=" + encodeURIComponent(msg));
+}
+
+/* LANGUAGE */
+function changeLang(lang) {
+  if (lang === "te") {
+    document.getElementById("titleText").innerText = "స్మార్ట్ రిపేర్ అలయన్స్ హబ్";
+    document.getElementById("subText").innerText = "డోర్ స్టెప్ సర్వీస్";
+    document.getElementById("serviceTitle").innerText = "మా సేవలు";
+  } 
+  else if (lang === "hi") {
+    document.getElementById("titleText").innerText = "स्मार्ट रिपेयर अलायंस हब";
+    document.getElementById("subText").innerText = "डोर स्टेप सर्विस";
+    document.getElementById("serviceTitle").innerText = "हमारी सेवाएं";
+  } 
+  else {
+    document.getElementById("titleText").innerText = "Smart Repair Alliances Hub";
+    document.getElementById("subText").innerText = "Kadapa – Doorstep Service";
+    document.getElementById("serviceTitle").innerText = "Our Services";
+  }
 }
 </script>
 

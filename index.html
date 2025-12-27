@@ -12,25 +12,21 @@ header p { font-size:13px; margin:5px 0 10px 0; }
 .top-buttons a { display:inline-block; margin:6px; padding:8px 14px; border-radius:6px; color:white; text-decoration:none; font-weight:bold; font-size:14px; }
 .call-btn { background:#198754; }
 .whatsapp-btn { background:#25D366; }
-
 h2 { padding:10px; text-align:center; }
 
 .services-wrapper { display:grid; grid-template-columns:1fr; gap:15px; padding:10px; min-height:120vh; }
-@media (min-width:768px){
-  .services-wrapper { grid-template-columns:1fr 1fr; max-width:1200px; margin:auto; }
-}
+@media (min-width:768px){ .services-wrapper { grid-template-columns:1fr 1fr; max-width:1200px; margin:auto; } }
 
 .service { background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
 .service-btn { width:100%; padding:14px; background:#0d6efd; color:white; border:none; font-size:16px; text-align:left; cursor:pointer; }
+.service-btn:hover { background:#0b5ed7; }
 .items { display:none; padding:10px; }
 .items div { background:#eef1f5; padding:12px; margin:6px 0; border-radius:6px; cursor:pointer; }
+.items div:hover { background:#d6e0f0; }
 
 #formBox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:999; }
 #formInner { background:white; max-width:420px; margin:60px auto; padding:20px; border-radius:10px; }
 #formInner input,#formInner textarea { width:100%; padding:10px; margin:6px 0; border-radius:6px; border:1px solid #ccc; }
-
-#errorMsg{color:red;font-size:14px}
-
 .btn-green { width:100%; padding:12px; background:#25D366; border:none; color:white; font-size:15px; border-radius:6px; cursor:pointer; margin-top:6px; }
 .btn-red { width:100%; padding:10px; background:#dc3545; border:none; color:white; font-size:14px; border-radius:6px; cursor:pointer; margin-top:6px; }
 
@@ -38,6 +34,7 @@ h2 { padding:10px; text-align:center; }
   background:#eef1f5;
   padding:12px 0;
   text-align:center;
+  box-shadow:0 -2px 6px rgba(0,0,0,0.1);
   width:100%;
   margin-top:20px;
   opacity:0;
@@ -45,17 +42,20 @@ h2 { padding:10px; text-align:center; }
   transition: all 0.8s ease;
 }
 #contactPrompt.show { opacity:1; transform:translateY(0); }
+#contactPrompt h3 { margin-bottom:6px; }
+#contactPrompt p { font-size:13px; margin-bottom:10px; line-height:1.4; }
+#contactPrompt a { margin:4px; padding:6px 12px; border-radius:6px; color:white; font-weight:bold; font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
 
 footer { background:#0d6efd; color:white; text-align:center; padding:20px 10px; margin-top:20px; }
-footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; background:#198754; border-radius:6px; color:white; text-decoration:none; }
+footer p { font-size:13px; margin:6px 0; }
+footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; background:#198754; border-radius:6px; color:white; font-weight:bold; text-decoration:none; }
 </style>
 </head>
-
 <body>
 
 <header>
   <h1>Smart Repair Alliances Hub</h1>
-  <p>Kadapa – Doorstep Service | 8:00 AM to 9:00 PM | 📞 6303715808</p>
+  <p>Kadapa – Doorstep Service | Timings:8:00 AM to 9:00 PM | OWNER: Angeri Rambhupal Reddy | 📞 6303715808</p>
   <div class="top-buttons">
     <a class="call-btn" href="tel:6303715808">📞 Call</a>
     <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
@@ -63,131 +63,161 @@ footer .phone { display:inline-block; margin-top:8px; padding:8px 14px; backgrou
 </header>
 
 <h2>Our Services</h2>
-
 <div class="services-wrapper">
+  <div class="service"><button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+    <div class="items" id="ac">
+      <div onclick="openForm('AC Repair')">AC Repair</div>
+      <div onclick="openForm('AC Installation')">AC Installation</div>
+      <div onclick="openForm('AC General Service')">AC General Service</div>
+    </div>
+  </div>
 
-<!-- SERVICES (UNCHANGED) -->
-<div class="service"><button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
-<div class="items" id="ac">
-<div onclick="openForm('AC Repair')">AC Repair</div>
-<div onclick="openForm('AC Installation')">AC Installation</div>
-<div onclick="openForm('AC General Service')">AC General Service</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+    <div class="items" id="fridge">
+      <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+      <div onclick="openForm('Gas Filling')">Gas Filling</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
-<div class="items" id="fridge">
-<div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
-<div onclick="openForm('Gas Filling')">Gas Filling</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+    <div class="items" id="wash">
+      <div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+      <div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
-<div class="items" id="wash">
-<div onclick="openForm('Top Load Repair')">Top Load Repair</div>
-<div onclick="openForm('Front Load Repair')">Front Load Repair</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+    <div class="items" id="chimney">
+      <div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+      <div onclick="openForm('Chimney Repair')">Repair</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
-<div class="items" id="chimney">
-<div onclick="openForm('Chimney Cleaning')">Cleaning</div>
-<div onclick="openForm('Chimney Repair')">Repair</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+    <div class="items" id="tv">
+      <div onclick="openForm('LED / LCD Repair')">LED / LCD Repair</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
-<div class="items" id="tv">
-<div onclick="openForm('LED / LCD Repair')">LED / LCD Repair</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+    <div class="items" id="ro">
+      <div onclick="openForm('RO Service')">RO Service</div>
+      <div onclick="openForm('Filter Change')">Filter Change</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
-<div class="items" id="ro">
-<div onclick="openForm('RO Service')">RO Service</div>
-<div onclick="openForm('Filter Change')">Filter Change</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+    <div class="items" id="geyser">
+      <div onclick="openForm('Geyser Repair')">Repair</div>
+      <div onclick="openForm('Geyser Installation')">Installation</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
-<div class="items" id="geyser">
-<div onclick="openForm('Geyser Repair')">Repair</div>
-<div onclick="openForm('Geyser Installation')">Installation</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+    <div class="items" id="cooler">
+      <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
-<div class="items" id="cooler">
-<div onclick="openForm('Cooler Repair')">Cooler Repair</div>
-</div></div>
+  <div class="service"><button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
+    <div class="items" id="microwave">
+      <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+    </div>
+  </div>
 
-<div class="service"><button class="service-btn" onclick="toggleService('microwave')">🍳 Microwave Oven</button>
-<div class="items" id="microwave">
-<div onclick="openForm('Microwave Repair')">Microwave Repair</div>
-</div></div>
-
-<div class="service"><button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
-<div class="items" id="bed">
-<div onclick="openForm('Bed Fitting')">Bed Fitting</div>
-</div></div>
-
+  <div class="service"><button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+    <div class="items" id="bed">
+      <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+    </div>
+  </div>
 </div>
 
-<!-- FORM -->
 <div id="formBox">
-<div id="formInner">
-<h3 id="serviceName"></h3>
-
-<input id="custName" placeholder="Customer Name">
-<input id="custMobile" placeholder="Mobile Number">
-<textarea id="custIssue" placeholder="Problem / Issue"></textarea>
-<textarea id="custAddress" placeholder="Address"></textarea>
-
-<p id="errorMsg"></p>
-
-<button class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
-<button class="btn-red" onclick="closeForm()">Close</button>
-</div>
+  <div id="formInner">
+    <h3 id="serviceName"></h3>
+    <form id="serviceForm">
+      <input name="custName" id="custName" placeholder="Customer Name">
+      <input name="custMobile" id="custMobile" placeholder="Mobile Number">
+      <textarea name="custIssue" id="custIssue" placeholder="Problem / Issue"></textarea>
+      <textarea name="custAddress" id="custAddress" placeholder="Address"></textarea>
+      <button type="button" class="btn-green" onclick="sendWhatsApp()">Send to WhatsApp</button>
+      <button type="button" class="btn-red" onclick="closeForm()">Close</button>
+    </form>
+  </div>
 </div>
 
-<!-- WHY CONTACT -->
 <div id="contactPrompt">
-<h3>Why Contact Us?</h3>
-<p>✅ Quick Repairs<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
-<a class="call-btn" href="tel:6303715808">📞 Call</a>
-<a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+  <h3>Why Contact Us?</h3>
+  <p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
+  <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+  <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
 </div>
 
 <footer>
-<h3>Smart Repair Alliances Hub</h3>
-<p>4/21, Kotha Nellore (V), Khajipeta (M)<br>Kadapa, AP – 516163</p>
-<a href="tel:6303715808" class="phone">📞 6303715808</a>
-<p>© 2025 Smart Repair Alliances Hub</p>
+  <h3>Smart Repair Alliances Hub</h3>
+  <p>4/21,kotha nellure(V),Khajipeta(M),<br>Kadapa, Andhra Pradesh - 516163</p>
+  <a href="tel:6303715808" class="phone">📞 6303715808</a>
+  <p>© 2025 Smart Repair Alliances Hub. All rights reserved.</p>
 </footer>
 
 <script>
-let selectedService="";
+const formBox = document.getElementById("formBox");
+const serviceName = document.getElementById("serviceName");
+const contactPrompt = document.getElementById("contactPrompt");
+let selectedService = "";
 
+// Toggle dropdowns & auto-hide others
 function toggleService(id){
-document.querySelectorAll(".items").forEach(el=>el.style.display="none");
-document.getElementById(id).style.display="block";
-closeForm();
+  document.querySelectorAll(".items").forEach(el => {
+    if(el.id === id){
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    } else {
+      el.style.display = "none";
+    }
+  });
+
+  // Reset & hide form whenever switching services
+  const form = document.getElementById("serviceForm");
+  form.reset();
+  formBox.style.display = "none";
 }
 
+// Open form & reset fields
 function openForm(service){
-selectedService=service;
-serviceName.innerText=service;
-custName.value=custMobile.value=custIssue.value=custAddress.value="";
-errorMsg.innerText="";
-formBox.style.display="block";
+  selectedService = service;
+  serviceName.innerText = service;
+
+  const form = document.getElementById("serviceForm");
+  form.reset();
+
+  formBox.style.display = "block";
 }
 
-function closeForm(){
-formBox.style.display="none";
-}
+// Close form
+formBox.addEventListener("click", e => { if(e.target === formBox) closeForm(); });
+function closeForm(){ formBox.style.display="none"; }
 
+// Send WhatsApp
 function sendWhatsApp(){
-if(custName.value==""||custMobile.value==""||custIssue.value==""||custAddress.value==""){
-errorMsg.innerText="All fields are required";
-return;
+  const custName = document.getElementById("custName").value;
+  const custMobile = document.getElementById("custMobile").value;
+  const custIssue = document.getElementById("custIssue").value;
+  const custAddress = document.getElementById("custAddress").value;
+
+  const msg = `Service: ${selectedService}\nName: ${custName}\nMobile: ${custMobile}\nIssue: ${custIssue}\nAddress: ${custAddress}`;
+  window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg), "_blank");
 }
-let msg=`Service: ${selectedService}\nName: ${custName.value}\nMobile: ${custMobile.value}\nIssue: ${custIssue.value}\nAddress: ${custAddress.value}`;
-window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg),"_blank");
-}
+
+// Fade in contact prompt
+window.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY + window.innerHeight;
+  const elementPosition = contactPrompt.offsetTop;
+  if(scrollPosition > elementPosition - 50){
+    contactPrompt.classList.add("show");
+  }
+});
 </script>
 
 </body>
 </html>
+

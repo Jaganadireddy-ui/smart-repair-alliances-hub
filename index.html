@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Smart Repair Alliances Hub</title>
 
 <style>
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #f2f4f8;
   margin: 0;
 }
@@ -22,7 +21,7 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
 .service-btn {
@@ -60,56 +59,106 @@ h2 {
 
 <h2>Our Services</h2>
 
+<!-- 1 -->
 <div class="service">
-  <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
-  <div class="items" id="ac">
-    <div><a href="tel:6303715808">AC Repair</a></div>
-    <div><a href="tel:6303715808">AC Installation</a></div>
-    <div><a href="tel:6303715808">AC Service</a></div>
-  </div>
+<button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+<div class="items" id="ac">
+  <div><a href="tel:6303715808">AC Repair</a></div>
+  <div><a href="tel:6303715808">AC Installation</a></div>
+  <div><a href="tel:6303715808">AC General Service</a></div>
+</div>
 </div>
 
+<!-- 2 -->
 <div class="service">
-  <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
-  <div class="items" id="fridge">
-    <div><a href="tel:6303715808">Refrigerator Repair</a></div>
-    <div><a href="tel:6303715808">Gas Filling</a></div>
-  </div>
+<button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+<div class="items" id="fridge">
+  <div><a href="tel:6303715808">Fridge Repair</a></div>
+  <div><a href="tel:6303715808">Gas Filling</a></div>
+  <div><a href="tel:6303715808">Cooling Issue</a></div>
+</div>
 </div>
 
+<!-- 3 -->
 <div class="service">
-  <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
-  <div class="items" id="wash">
-    <div><a href="tel:6303715808">Top Load Repair</a></div>
-    <div><a href="tel:6303715808">Front Load Repair</a></div>
-  </div>
+<button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+<div class="items" id="wash">
+  <div><a href="tel:6303715808">Top Load Repair</a></div>
+  <div><a href="tel:6303715808">Front Load Repair</a></div>
+  <div><a href="tel:6303715808">Drum Problem</a></div>
+</div>
 </div>
 
+<!-- 4 -->
 <div class="service">
-  <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
-  <div class="items" id="chimney">
-    <div><a href="tel:6303715808">Cleaning</a></div>
-    <div><a href="tel:6303715808">Repair</a></div>
-  </div>
+<button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+<div class="items" id="chimney">
+  <div><a href="tel:6303715808">Chimney Cleaning</a></div>
+  <div><a href="tel:6303715808">Chimney Repair</a></div>
+</div>
 </div>
 
+<!-- 5 -->
 <div class="service">
-  <button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
-  <div class="items" id="dth">
-    <div><a href="tel:6303715808">New Connection</a></div>
-    <div><a href="tel:6303715808">Repair</a></div>
-  </div>
+<button class="service-btn" onclick="toggleService('dth')">📡 DTH Service</button>
+<div class="items" id="dth">
+  <div><a href="tel:6303715808">New Connection</a></div>
+  <div><a href="tel:6303715808">Signal Problem</a></div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+<div class="items" id="tv">
+  <div><a href="tel:6303715808">LED / LCD Repair</a></div>
+  <div><a href="tel:6303715808">Display Issue</a></div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier (RO)</button>
+<div class="items" id="ro">
+  <div><a href="tel:6303715808">RO Service</a></div>
+  <div><a href="tel:6303715808">Filter Change</a></div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+  <div><a href="tel:6303715808">Geyser Repair</a></div>
+  <div><a href="tel:6303715808">Installation</a></div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+<div class="items" id="cooler">
+  <div><a href="tel:6303715808">Cooler Repair</a></div>
+  <div><a href="tel:6303715808">Motor Issue</a></div>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+  <div><a href="tel:6303715808">Bed Fitting</a></div>
+  <div><a href="tel:6303715808">Repair Service</a></div>
+</div>
 </div>
 
 <script>
 function toggleService(id) {
-  const all = document.querySelectorAll(".items");
-
-  all.forEach(box => {
-    if (box.id === id) {
-      box.style.display = box.style.display === "block" ? "none" : "block";
+  document.querySelectorAll(".items").forEach(item => {
+    if (item.id === id) {
+      item.style.display = item.style.display === "block" ? "none" : "block";
     } else {
-      box.style.display = "none";
+      item.style.display = "none";
     }
   });
 }

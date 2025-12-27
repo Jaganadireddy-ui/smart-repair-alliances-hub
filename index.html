@@ -6,7 +6,7 @@
 <title>Smart Repair Alliances Hub</title>
 
 <style>
-  /* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   background:#0d6efd;
   color:white;
@@ -14,203 +14,48 @@ footer {
   padding:20px 10px;
   margin-top:20px;
 }
-
-footer p {
-  font-size:13px;
-  margin:6px 0;
-}
-
+footer p { font-size:13px; margin:6px 0; }
 footer .phone {
-  display:inline-block;
-  margin-top:8px;
-  padding:8px 14px;
-  background:#198754;
-  border-radius:6px;
-  color:white;
-  font-weight:bold;
-  text-decoration:none;
+  display:inline-block; margin-top:8px; padding:8px 14px;
+  background:#198754; border-radius:6px; color:white;
+  font-weight:bold; text-decoration:none;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f4f8;
-}
-
-/* HEADER */
-header {
-  background: #0d6efd;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-header p {
-  font-size: 13px;
-  margin: 5px 0 10px 0;
-}
-
-/* TOP BUTTONS */
-.top-buttons a {
-  display: inline-block;
-  margin: 6px;
-  padding: 8px 14px;
-  border-radius: 6px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
-.call-btn { background: #198754; }
-.whatsapp-btn { background: #25D366; }
-
-/* HEADING */
-h2 {
-  padding: 10px;
-  text-align: center;
-}
-
-/* ===== SERVICES LAYOUT ===== */
-.services-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  padding: 10px;
-  min-height: 120vh; /* ensures Why Contact Us at bottom */
-}
-
-@media (min-width: 768px) {
-  .services-wrapper {
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
-    margin: auto;
-  }
-}
+/* BODY & HEADER */
+body { margin:0; font-family:Arial,sans-serif; background:#f2f4f8; }
+header { background:#0d6efd; color:white; text-align:center; padding:15px; }
+header p { font-size:13px; margin:5px 0 10px 0; }
+.top-buttons a { display:inline-block; margin:6px; padding:8px 14px; border-radius:6px; color:white; text-decoration:none; font-weight:bold; font-size:14px; }
+.call-btn { background:#198754; }
+.whatsapp-btn { background:#25D366; }
+h2 { padding:10px; text-align:center; }
 
 /* SERVICES */
-.service {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+.services-wrapper { display:grid; grid-template-columns:1fr; gap:15px; padding:10px; min-height:120vh; }
+@media (min-width:768px){ .services-wrapper { grid-template-columns:1fr 1fr; max-width:1200px; margin:auto; } }
 
-.service-btn {
-  width: 100%;
-  padding: 14px;
-  background: #0d6efd;
-  color: white;
-  border: none;
-  font-size: 16px;
-  text-align: left;
-  cursor: pointer;
-}
-.service-btn:hover {
-  background: #0b5ed7;
-}
-
-.items {
-  display: none;
-  padding: 10px;
-}
-
-.items div {
-  background: #eef1f5;
-  padding: 12px;
-  margin: 6px 0;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.items div:hover {
-  background: #d6e0f0;
-}
+.service { background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+.service-btn { width:100%; padding:14px; background:#0d6efd; color:white; border:none; font-size:16px; text-align:left; cursor:pointer; }
+.service-btn:hover { background:#0b5ed7; }
+.items { display:none; padding:10px; }
+.items div { background:#eef1f5; padding:12px; margin:6px 0; border-radius:6px; cursor:pointer; }
+.items div:hover { background:#d6e0f0; }
 
 /* FORM */
-#formBox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  z-index: 999;
-}
+#formBox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:999; }
+#formInner { background:white; max-width:420px; margin:60px auto; padding:20px; border-radius:10px; }
+#formInner input,#formInner textarea { width:100%; padding:10px; margin:6px 0; border-radius:6px; border:1px solid #ccc; }
+.btn-green { width:100%; padding:12px; background:#25D366; border:none; color:white; font-size:15px; border-radius:6px; cursor:pointer; margin-top:6px; }
+.btn-red { width:100%; padding:10px; background:#dc3545; border:none; color:white; font-size:14px; border-radius:6px; cursor:pointer; margin-top:6px; }
 
-#formInner {
-  background: white;
-  max-width: 420px;
-  margin: 60px auto;
-  padding: 20px;
-  border-radius: 10px;
-}
+/* CONTACT PROMPT */
+#contactPrompt { background:#eef1f5; padding:12px 0; text-align:center; box-shadow:0 -2px 6px rgba(0,0,0,0.1); width:100%; margin-top:20px; }
+#contactPrompt h3 { margin-bottom:6px; }
+#contactPrompt p { font-size:13px; margin-bottom:10px; line-height:1.4; }
+#contactPrompt a { margin:4px; padding:6px 12px; border-radius:6px; color:white; font-weight:bold; font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
 
-#formInner input,
-#formInner textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.btn-green {
-  width: 100%;
-  padding: 12px;
-  background: #25D366;
-  border: none;
-  color: white;
-  font-size: 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top:6px;
-}
-
-.btn-red {
-  width: 100%;
-  padding: 10px;
-  background: #dc3545;
-  border: none;
-  color: white;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 6px;
-}
-
-/* ===== CONTACT PROMPT ===== */
-#contactPrompt {
-  background:#eef1f5;
-  padding:12px 0;
-  text-align:center;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  width: 100%;
-  margin-top:20px;
-}
-
-#contactPrompt h3 {
-  margin-bottom: 6px;
-}
-
-#contactPrompt p {
-  font-size:13px;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-#contactPrompt a {
-  margin: 4px;
-  padding: 6px 12px;
-  border-radius:6px;
-  color:white;
-  font-weight:bold;
-  font-size:13px;
-  text-decoration:none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-#contactPrompt .call-btn { background:#198754; }
-#contactPrompt .whatsapp-btn { background:#25D366; }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -225,8 +70,7 @@ h2 {
 <h2>Our Services</h2>
 
 <div class="services-wrapper">
-
-  <!-- Services cards same as original code -->
+  <!-- AC -->
   <div class="service">
     <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
     <div class="items" id="ac">
@@ -235,9 +79,74 @@ h2 {
       <div onclick="openForm('AC General Service')">AC General Service</div>
     </div>
   </div>
-  
-  <!-- Add other service cards here ... same as original code ... -->
-
+  <!-- Fridge -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+    <div class="items" id="fridge">
+      <div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+      <div onclick="openForm('Gas Filling')">Gas Filling</div>
+    </div>
+  </div>
+  <!-- Washing -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+    <div class="items" id="wash">
+      <div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+      <div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+    </div>
+  </div>
+  <!-- Chimney -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+    <div class="items" id="chimney">
+      <div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+      <div onclick="openForm('Chimney Repair')">Repair</div>
+    </div>
+  </div>
+  <!-- TV -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+    <div class="items" id="tv">
+      <div onclick="openForm('TV Repair')">LED / LCD Repair</div>
+    </div>
+  </div>
+  <!-- RO -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+    <div class="items" id="ro">
+      <div onclick="openForm('RO Service')">RO Service</div>
+      <div onclick="openForm('Filter Change')">Filter Change</div>
+    </div>
+  </div>
+  <!-- Geyser -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+    <div class="items" id="geyser">
+      <div onclick="openForm('Geyser Repair')">Repair</div>
+      <div onclick="openForm('Geyser Installation')">Installation</div>
+    </div>
+  </div>
+  <!-- Cooler -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+    <div class="items" id="cooler">
+      <div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+    </div>
+  </div>
+  <!-- Microwave -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
+    <div class="items" id="microwave">
+      <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+    </div>
+  </div>
+  <!-- Bed -->
+  <div class="service">
+    <button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+    <div class="items" id="bed">
+      <div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+    </div>
+  </div>
 </div>
 
 <!-- FORM -->
@@ -253,7 +162,7 @@ h2 {
   </div>
 </div>
 
-<!-- CONTACT PROMPT – moved below services -->
+<!-- CONTACT PROMPT -->
 <div id="contactPrompt">
   <h3>Why Contact Us?</h3>
   <p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
@@ -264,44 +173,28 @@ h2 {
 <!-- FOOTER -->
 <footer>
   <h3>Smart Repair Alliances Hub</h3>
-  <p>
-    4/21,kotha nellure(V),Khajipeta(M),<br>
-    Kadapa, Andhra Pradesh - 516163
-  </p>
+  <p>4/21,kotha nellure(V),Khajipeta(M),<br>Kadapa, Andhra Pradesh - 516163</p>
   <a href="tel:6303715808" class="phone">📞 6303715808</a>
   <p>© 2025 Smart Repair Alliances Hub. All rights reserved.</p>
 </footer>
 
 <script>
 let selectedService = "";
-
 function toggleService(id) {
   document.querySelectorAll(".items").forEach(el => {
     el.style.display = el.id === id && el.style.display !== "block" ? "block" : "none";
   });
 }
-
 function openForm(service) {
   selectedService = service;
   serviceName.innerText = service;
   formBox.style.display = "block";
 }
-
-formBox.addEventListener("click", e => {
-  if (e.target === formBox) closeForm();
-});
-
-function closeForm() {
-  formBox.style.display = "none";
-}
-
+formBox.addEventListener("click", e => { if(e.target===formBox) closeForm(); });
+function closeForm() { formBox.style.display="none"; }
 function sendWhatsApp() {
-  const msg = `Service: ${selectedService}
-Name: ${custName.value}
-Mobile: ${custMobile.value}
-Issue: ${custIssue.value}
-Address: ${custAddress.value}`;
-  window.open("https://wa.me/916303715808?text=" + encodeURIComponent(msg), "_blank");
+  const msg = `Service: ${selectedService}\nName: ${custName.value}\nMobile: ${custMobile.value}\nIssue: ${custIssue.value}\nAddress: ${custAddress.value}`;
+  window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg), "_blank");
 }
 </script>
 

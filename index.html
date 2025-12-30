@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Repair Alliances Hub</title>
-
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f2f4f8}
 header{background:#0d6efd;color:#fff;text-align:center;padding:15px}
@@ -14,16 +13,13 @@ header p{font-size:13px;margin:5px 0 10px}
 .whatsapp-btn{background:#25D366}
 h2{text-align:center;padding:10px}
 .services-wrapper{display:grid;grid-template-columns:1fr;gap:15px;padding:10px}
-@media(min-width:768px){
-  .services-wrapper{grid-template-columns:1fr 1fr;max-width:1200px;margin:auto}
-}
-.service{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+@media(min-width:768px){.services-wrapper{grid-template-columns:1fr 1fr;max-width:1200px;margin:auto}}
+.service{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);align-self:start}
 .service-btn{width:100%;padding:14px;background:#0d6efd;color:#fff;border:none;font-size:16px;text-align:left;cursor:pointer}
 .service-btn:hover{background:#0b5ed7}
 .items{display:none;padding:10px}
 .items div{background:#eef1f5;padding:12px;margin:6px 0;border-radius:6px;cursor:pointer}
 .items div:hover{background:#d6e0f0}
-
 #formBox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999}
 #formInner{background:#fff;max-width:420px;margin:60px auto;padding:20px;border-radius:10px}
 #formInner input,#formInner textarea{width:100%;padding:10px;margin:6px 0;border-radius:6px;border:1px solid #ccc}
@@ -31,37 +27,21 @@ h2{text-align:center;padding:10px}
 .btn-red{width:100%;padding:10px;background:#dc3545;border:none;color:#fff;font-size:14px;border-radius:6px;cursor:pointer;margin-top:6px}
 #confirmBox{text-align:center;display:none}
 #confirmBox h3{color:#198754}
-
-#contactPrompt{
-  background:#eef1f5;
-  padding:15px 10px;
-  text-align:center;
-  box-shadow:0 -2px 6px rgba(0,0,0,0.1);
-  margin-top:20px
-}
+/* Why Contact Us section */
+#contactPrompt{background:#eef1f5;padding:12px 0;text-align:center;box-shadow:0 -2px 6px rgba(0,0,0,0.1);width:100%;margin-top:20px}
 #contactPrompt h3{margin-bottom:6px}
 #contactPrompt p{font-size:13px;margin-bottom:10px}
-#contactPrompt a{
-  display:inline-block;
-  margin:5px;
-  padding:8px 14px;
-  border-radius:6px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px
-}
-
-footer{background:#0d6efd;color:#fff;text-align:center;padding:20px}
+#contactPrompt a{display:inline-block;margin:5px;padding:8px 14px;border-radius:6px;color:#fff;text-decoration:none;font-weight:bold;font-size:14px}
+footer{background:#0d6efd;color:#fff;text-align:center;padding:20px;margin-top:20px}
 footer p{font-size:13px;margin:6px 0}
+footer .phone{display:inline-block;margin-top:8px;padding:8px 14px;background:#198754;border-radius:6px;color:white;font-weight:bold;text-decoration:none}
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>Smart Repair Alliances Hub</h1>
-<p>Kadapa – Doorstep Service | 8AM–9PM | 📞 6303715808</p>
+<p>Kadapa – Doorstep Service |Timings: 8AM–9PM |Services are available all over kadapa and nearby locations | OWNER: Angeri Rambhupal Reddy | 📞 6303715808</p>
 <div class="top-buttons">
 <a class="call-btn" href="tel:6303715808">📞 Call</a>
 <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
@@ -71,7 +51,6 @@ footer p{font-size:13px;margin:6px 0}
 <h2>Our Services</h2>
 <div class="services-wrapper">
 
-<!-- 1 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
 <div class="items" id="ac">
@@ -81,7 +60,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 2 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
 <div class="items" id="fridge">
@@ -90,7 +68,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 3 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
 <div class="items" id="wash">
@@ -99,7 +76,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 4 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
 <div class="items" id="chimney">
@@ -108,7 +84,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 5 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
 <div class="items" id="tv">
@@ -116,7 +91,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 6 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
 <div class="items" id="ro">
@@ -125,7 +99,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 7 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
 <div class="items" id="geyser">
@@ -134,7 +107,6 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 8 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
 <div class="items" id="cooler">
@@ -142,15 +114,13 @@ footer p{font-size:13px;margin:6px 0}
 </div>
 </div>
 
-<!-- 9 -->
 <div class="service">
-<button class="service-btn" onclick="toggleService('microwave')">🍽️ Microwave Oven</button>
+<button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
 <div class="items" id="microwave">
 <div onclick="openForm('Microwave Repair')">Microwave Repair</div>
 </div>
 </div>
 
-<!-- 10 -->
 <div class="service">
 <button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
 <div class="items" id="bed">
@@ -164,7 +134,7 @@ footer p{font-size:13px;margin:6px 0}
 <div id="formBox">
 <div id="formInner">
 <h3 id="serviceName"></h3>
-<form>
+<form id="serviceForm">
 <input id="custName" placeholder="Customer Name">
 <input id="custMobile" placeholder="Mobile Number">
 <textarea id="custIssue" placeholder="Problem / Issue"></textarea>
@@ -182,20 +152,14 @@ footer p{font-size:13px;margin:6px 0}
 <!-- WHY CONTACT US -->
 <div id="contactPrompt">
 <h3>Why Contact Us?</h3>
-<p>
-✅ Quick Repairs at Your Doorstep<br>
-✅ Professional Technicians<br>
-✅ Affordable Pricing
-</p>
+<p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
 <a class="call-btn" href="tel:6303715808">📞 Call Now</a>
 <a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
-<p style="margin-top:10px;">
-4/21, Kotha Nellore(V), Khajipet(M), Kadapa – 516163
-</p>
+<p style="margin-top:10px;">4/21, Kotha Nellore(V),Khajipet(M), Kadapa, Andhra pradesh – 516163</p>
 </div>
 
 <footer>
-<p>© 2025 Smart Repair Alliances Hub. All rights reserved.</p>
+<p>© 2025 Smart Repair Alliances Hub.All rights reserved.</p>
 </footer>
 
 <script>
@@ -203,60 +167,57 @@ let selectedService="";
 
 function toggleService(id){
   document.querySelectorAll(".items").forEach(el=>{
-    if(el.id===id){
-      el.style.display = (el.style.display==="block") ? "none" : "block";
-    }else{
-      el.style.display="none";
-    }
+    el.style.display = (el.id===id && el.style.display!=="block")?"block":"none";
   });
+  document.getElementById("serviceForm").reset();
+  document.getElementById("formBox").style.display="none";
+  document.getElementById("confirmBox").style.display="none";
 }
 
 function openForm(service){
   selectedService=service;
-  serviceName.innerText=service;
-  formBox.style.display="block";
+  document.getElementById("serviceName").innerText=service;
+  document.getElementById("serviceForm").reset();
+  document.getElementById("formBox").style.display="block";
+  document.getElementById("confirmBox").style.display="none";
+  document.getElementById("serviceForm").style.display="block";
 }
 
 function closeForm(){
-  formBox.style.display="none";
+  document.getElementById("formBox").style.display="none";
+  document.getElementById("serviceForm").reset();
 }
 
 function sendWhatsApp(){
-  let n=custName.value.trim(),
-      m=custMobile.value.trim(),
-      i=custIssue.value.trim(),
-      a=custAddress.value.trim();
-
-  if(!n||!m||!i||!a){alert("All fields required");return;}
-  if(!/^[6-9]\d{9}$/.test(m)){alert("Invalid mobile number");return;}
-
+  let n=document.getElementById("custName").value.trim();
+  let m=document.getElementById("custMobile").value.trim();
+  let i=document.getElementById("custIssue").value.trim();
+  let a=document.getElementById("custAddress").value.trim();
+  
+  if(!n||!m||!i||!a){ alert("All fields required"); return; }
+  if(!/^[6-9]\d{9}$/.test(m)){ alert("Invalid mobile number"); return; }
+  
   let msg=`Service: ${selectedService}
 Name: ${n}
 Mobile: ${m}
 Issue: ${i}
 Address: ${a}`;
-
+  
   window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg),"_blank");
+  
+  document.getElementById("serviceForm").style.display="none";
+  document.getElementById("confirmBox").style.display="block";
+  
+  setTimeout(closeForm,4000);
 }
-</script>
-
-<!-- PULL TO REFRESH -->
-<script>
-let startY=0,pull=false;
-window.addEventListener("touchstart",e=>{
-  if(scrollY===0){startY=e.touches[0].clientY;pull=true;}
-},{passive:true});
-
-window.addEventListener("touchmove",e=>{
-  if(!pull)return;
-  if(e.touches[0].clientY-startY>130){
-    pull=false;
-    location.reload();
-  }
-},{passive:true});
-
-window.addEventListener("touchend",()=>pull=false);
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+

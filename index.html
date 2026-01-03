@@ -153,25 +153,48 @@ footer .phone{display:inline-block;margin-top:8px;padding:8px 14px;background:#1
 </div>
 
 
+function sendWhatsApp() {
+  let n = document.getElementById("custName").value.trim();
+  let m = document.getElementById("custMobile").value.trim();
+  let i = document.getElementById("custIssue").value.trim();
+  let a = document.getElementById("custAddress").value.trim();
 
-<!-- FORM -->
-<div id="formBox">
-<div id="formInner">
-<h3 id="serviceName"></h3>
-<form id="serviceForm">
-<input id="custName" placeholder="Customer Name">
-<input id="custMobile" placeholder="Mobile Number">
-<textarea id="custIssue" placeholder="Problem / Issue"></textarea>
-<textarea id="custAddress" placeholder="Address"></textarea>
-<button type="button" class="btn-green" onclick="sendWhatsApp()">Send WhatsApp</button>
-<button type="button" class="btn-red" onclick="closeForm()">Close</button>
-</form>
-<div id="confirmBox">
-<h3>✅ Booking Confirmed</h3>
-<p>Technician will contact you shortly 🙏</p>
-</div>
-</div>
-</div>
+  // --- VALIDATION ---
+  if (!n || !m || !i || !a) {
+    alert("All fields required");
+    return;
+  }
+
+  if (!/^[6-9]\d{9}$/.test(m)) {
+    alert("Invalid mobile number");
+    return;
+  }
+
+  // --- SHOW CONFIRMATION IMMEDIATELY ---
+  document.getElementById("serviceForm").style.display = "none";
+  document.getElementById("confirmBox").style.display = "block";
+
+  // --- CLOSE FORM AFTER 4 SECONDS ---
+  setTimeout(closeForm, 4000);
+
+  // --- OPEN WHATSAPP IN NEW TAB ---
+  let msg = `Service: ${selectedService}
+Name: ${n}
+Mobile: ${m}
+Issue: ${i}
+Address: ${a}`;
+
+  // Use try-catch to prevent popup block from stopping code
+  try {
+    let wa = window.open("https://wa.me/916303715808?text=" + encodeURIComponent(msg), "_blank");
+    if (!wa) {
+      alert("WhatsApp popup blocked! Please allow popups to send message.");
+    }
+  } catch (e) {
+    console.error("Error opening WhatsApp:", e);
+  }
+}
+
 
 <!-- WHY CONTACT US -->
 <div id="contactPrompt">
@@ -238,6 +261,7 @@ Address: ${a}`;
 
 </body>
 </html>
+
 
 
 

@@ -6,22 +6,8 @@
 <title>Smart Repair Alliances Hub</title>
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f2f4f8}
-
-/* 🔹 LOGO WATERMARK */
-.bg-logo{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  width:220px;
-  opacity:0.07;
-  z-index:0;
-  pointer-events:none;
-}
-
-header{background:#0d6efd;color:#fff;text-align:center;padding:15px;position:relative;z-index:1}
-header img{width:80px;margin-bottom:5px}
+header{background:#0d6efd;color:#fff;text-align:center;padding:15px}
 header p{font-size:13px;margin:5px 0 10px}
-
 .top-buttons a{display:inline-block;margin:6px;padding:8px 14px;border-radius:6px;color:#fff;text-decoration:none;font-weight:bold;font-size:14px}
 .call-btn{background:#198754}
 .whatsapp-btn{background:#25D366}
@@ -53,11 +39,7 @@ footer .phone{display:inline-block;margin-top:8px;padding:8px 14px;background:#1
 </head>
 <body>
 
-<!-- 🔹 BACKGROUND LOGO -->
-<img src="logo.jpeg" class="bg-logo">
-
 <header>
-<img src="logo.jpeg">
 <h1>Smart Repair Alliances Hub</h1>
 <p>Kadapa – Doorstep Service |Timings: 8AM–9PM |Services are available all over kadapa and nearby locations | OWNER: Angeri Rambhupal Reddy | 📞 6303715808</p>
 <div class="top-buttons">
@@ -66,12 +48,182 @@ footer .phone{display:inline-block;margin-top:8px;padding:8px 14px;background:#1
 </div>
 </header>
 
-<!-- 🔴 BELOW THIS EVERYTHING IS 100% SAME AS YOUR CODE -->
-<!-- (Services, Form, Why Contact Us, Footer, Script – NO CHANGE) -->
+<h2>Our Services</h2>
+<div class="services-wrapper">
 
-<!-- 👉 Nee original code continues exactly same 👈 -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('ac')">❄️ AC Service</button>
+<div class="items" id="ac">
+<div onclick="openForm('AC Repair')">AC Repair</div>
+<div onclick="openForm('AC Installation')">AC Installation</div>
+<div onclick="openForm('AC General Service')">AC General Service</div>
+</div>
+</div>
 
-<!-- [SNIPPED HERE FOR READABILITY — YOUR CODE REMAINS UNCHANGED] -->
+<div class="service">
+<button class="service-btn" onclick="toggleService('fridge')">🧊 Refrigerator</button>
+<div class="items" id="fridge">
+<div onclick="openForm('Refrigerator Repair')">Refrigerator Repair</div>
+<div onclick="openForm('Gas Filling')">Gas Filling</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('wash')">🧺 Washing Machine</button>
+<div class="items" id="wash">
+<div onclick="openForm('Top Load Repair')">Top Load Repair</div>
+<div onclick="openForm('Front Load Repair')">Front Load Repair</div>
+<div onclick="openForm('Semi Automatic')">Semi Automatic</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('chimney')">🔥 Chimney</button>
+<div class="items" id="chimney">
+<div onclick="openForm('Chimney Cleaning')">Cleaning</div>
+<div onclick="openForm('Instalation')">Installation</div>
+<div onclick="openForm('Chimney Repair')">Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('tv')">📺 TV Repair</button>
+<div class="items" id="tv">
+<div onclick="openForm('LED / LCD Repair')">LED / LCD Repair</div>
+<div onclick="openForm('TV Instllation')">TV Installation</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('ro')">💧 Water Purifier</button>
+<div class="items" id="ro">
+<div onclick="openForm('RO Service')">RO Service</div>
+<div onclick="openForm('Filter Change')">Filter Change</div>
+<div onclick="openForm('RO Installation')">RO Installation</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('geyser')">🚿 Geyser</button>
+<div class="items" id="geyser">
+<div onclick="openForm('Geyser Repair')">Repair</div>
+<div onclick="openForm('Geyser Installation')">Installation</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('cooler')">🌀 Air Cooler</button>
+<div class="items" id="cooler">
+<div onclick="openForm('Cooler Repair')">Cooler Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('microwave')">🌀 Microwave Oven</button>
+<div class="items" id="microwave">
+<div onclick="openForm('Microwave Repair')">Microwave Repair</div>
+</div>
+</div>
+
+<div class="service">
+<button class="service-btn" onclick="toggleService('bed')">🛏️ Double Cot Bed</button>
+<div class="items" id="bed">
+<div onclick="openForm('Bed Fitting')">Bed Fitting</div>
+</div>
+</div>
+
+</div>
+
+<!-- FORM -->
+<div id="formBox">
+<div id="formInner">
+<h3 id="serviceName"></h3>
+<form id="serviceForm">
+<input id="custName" placeholder="Customer Name">
+<input id="custMobile" placeholder="Mobile Number">
+<textarea id="custIssue" placeholder="Problem / Issue"></textarea>
+<textarea id="custAddress" placeholder="Address"></textarea>
+<button type="button" class="btn-green" onclick="sendWhatsApp()">Send WhatsApp</button>
+<button type="button" class="btn-red" onclick="closeForm()">Close</button>
+</form>
+<div id="confirmBox">
+<h3>✅ Booking Confirmed</h3>
+<p>Technician will contact you shortly 🙏</p>
+</div>
+</div>
+</div>
+
+<!-- WHY CONTACT US -->
+<div id="contactPrompt">
+<h3>Why Contact Us?</h3>
+<p>✅ Quick Repairs at Your Doorstep<br>✅ Professional Technicians<br>✅ Affordable Pricing</p>
+<a class="call-btn" href="tel:6303715808">📞 Call Now</a>
+<a class="whatsapp-btn" href="https://wa.me/916303715808">💬 WhatsApp</a>
+<p style="margin-top:10px;">4/21, Kotha Nellore(V),Khajipet(M), Kadapa, Andhra pradesh – 516163</p>
+</div>
+
+<footer>
+<p>© 2025 Smart Repair Alliances Hub.All rights reserved.</p>
+</footer>
+
+<script>
+let selectedService="";
+
+function toggleService(id){
+  document.querySelectorAll(".items").forEach(el=>{
+    el.style.display = (el.id===id && el.style.display!=="block")?"block":"none";
+  });
+  document.getElementById("serviceForm").reset();
+  document.getElementById("formBox").style.display="none";
+  document.getElementById("confirmBox").style.display="none";
+}
+
+function openForm(service){
+  selectedService=service;
+  document.getElementById("serviceName").innerText=service;
+  document.getElementById("serviceForm").reset();
+  document.getElementById("formBox").style.display="block";
+  document.getElementById("confirmBox").style.display="none";
+  document.getElementById("serviceForm").style.display="block";
+}
+
+function closeForm(){
+  document.getElementById("formBox").style.display="none";
+  document.getElementById("serviceForm").reset();
+}
+
+function sendWhatsApp(){
+  let n=document.getElementById("custName").value.trim();
+  let m=document.getElementById("custMobile").value.trim();
+  let i=document.getElementById("custIssue").value.trim();
+  let a=document.getElementById("custAddress").value.trim();
+  
+  if(!n||!m||!i||!a){ alert("All fields required"); return; }
+  if(!/^[6-9]\d{9}$/.test(m)){ alert("Invalid mobile number"); return; }
+  
+  let msg=`Service: ${selectedService}
+Name: ${n}
+Mobile: ${m}
+Issue: ${i}
+Address: ${a}`;
+  
+  window.open("https://wa.me/916303715808?text="+encodeURIComponent(msg),"_blank");
+  
+  document.getElementById("serviceForm").style.display="none";
+  document.getElementById("confirmBox").style.display="block";
+  
+  setTimeout(closeForm,4000);
+}
+</script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+

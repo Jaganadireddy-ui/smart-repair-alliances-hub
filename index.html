@@ -134,6 +134,16 @@ footer .phone{display:inline-block;margin-top:8px;padding:8px 14px;background:#1
 
 </div>
 
+<div class="service">
+  <button class="service-btn" onclick="toggleService('dth')">📡 DTH Services</button>
+  <div class="items" id="dth">
+    <div onclick="openForm('DTH New Connection')">New Connection</div>
+    <div onclick="openForm('DTH Repair')">Repair</div>
+    <div onclick="openForm('DTH Installation')">Installation</div>
+  </div>
+</div>
+
+
 <!-- FORM -->
 <div id="formBox">
 <div id="formInner">
@@ -218,6 +228,7 @@ Address: ${a}`;
 
 </body>
 </html>
+
 
 
 
